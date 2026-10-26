@@ -1,0 +1,10 @@
+{
+  "isSample": true,
+  "items": [
+    { "id": "s1", "date": "2026-10-21", "category": "NFO", "source": "[Sample source]", "headline": "[Sample] A fund house opens a new fund offer in the flexi-cap category", "summary": "Layout example: one-line summary of an NFO announcement, its category and its subscription window.", "url": null },
+    { "id": "s2", "date": "2026-10-14", "category": "Regulation", "source": "[Sample source]", "headline": "[Sample] Regulator publishes a consultation paper on mutual fund disclosures", "summary": "Layout example: what the consultation proposes and when comments close, in one line.", "url": null },
+    { "id": "s3", "date": "2026-10-06", "category": "Fund launch", "source": "[Sample source]", "headline": "[Sample] An index fund tracking a new benchmark is launched", "summary": "Layout example: the benchmark, the expense ratio range and who the fund is designed for.", "url": null },
+    { "id": "s4", "date": "2026-09-29", "category": "Industry", "source": "[Sample source]", "headline": "[Sample] Monthly industry data shows SIP inflows for the month", "summary": "Layout example: the headline industry figure and how it compares with the previous month.", "url": null },
+    { "id": "s5", "date": "2026-09-17", "category": "Regulation", "source": "[Sample source]", "headline": "[Sample] New rules on nomination for mutual fund folios take effect", "summary": "Layout example: what investors need to do, if anything, and by when.", "url": null }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+ "asOf": "2026-10-23",
+ "isSample": true,
+ "source": "Sample data for layout only. Replace with a licensed data feed before launch (TODO).",
+ "funds": [
+  {
+   "id": "sample-0-0",
+   "name": "Sample Alpha Large Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Alpha",
+   "category": "Large Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 100 TRI",
+   "nav": 78.07,
+   "aumCr": 29396,
+   "expenseRatio": 0.43,
+   "returns": {
+    "1y": 10.15,
+    "3y": 12.22,
+    "5y": 11.01
+   },
+   "launchDate": "2005-01-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-0-1",
+   "name": "Sample Beta Large Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Beta",
+   "category": "Large Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 100 TRI",
+   "nav": 234.26,
+   "aumCr": 1976,
+   "expenseRatio": 1.08,
+   "returns": {
+    "1y": 5.1,
+    "3y": 9.42,
+    "5y": null
+   },
+   "launchDate": "2006-01-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-1-0",
+   "name": "Sample Beta Mid Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Beta",
+   "category": "Mid Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY Midcap 150 TRI",
+   "nav": 197.94,
+   "aumCr": 37260,
+   "expenseRatio": 0.52,
+   "returns": {
+    "1y": 10.0,
+    "3y": 15.01,
+    "5y": 18.33
+   },
+   "launchDate": "2008-02-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-1-1",
+   "name": "Sample Gamma Mid Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Gamma",
+   "category": "Mid Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY Midcap 150 TRI",
+   "nav": 264.77,
+   "aumCr": 18031,
+   "expenseRatio": 2.06,
+   "returns": {
+    "1y": 28.85,
+    "3y": 13.42,
+    "5y": 20.3
+   },
+   "launchDate": "2009-02-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-2-0",
+   "name": "Sample Gamma Small Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Gamma",
+   "category": "Small Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY Smallcap 250 TRI",
+   "nav": 75.18,
+   "aumCr": 5565,
+   "expenseRatio": 0.86,
+   "returns": {
+    "1y": 15.95,
+    "3y": 22.98,
+    "5y": 15.9
+   },
+   "launchDate": "2011-03-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-2-1",
+   "name": "Sample Delta Small Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Delta",
+   "category": "Small Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY Smallcap 250 TRI",
+   "nav": 291.84,
+   "aumCr": 16946,
+   "expenseRatio": 1.29,
+   "returns": {
+    "1y": 22.96,
+    "3y": null,
+    "5y": null
+   },
+   "launchDate": "2021-06-01",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-3-0",
+   "name": "Sample Delta Flexi Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Delta",
+   "category": "Flexi Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 500 TRI",
+   "nav": 38.11,
+   "aumCr": 9506,
+   "expenseRatio": 1.52,
+   "returns": {
+    "1y": 7.26,
+    "3y": null,
+    "5y": null
+   },
+   "launchDate": "2021-06-01",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-3-1",
+   "name": "Sample Alpha Flexi Cap Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Alpha",
+   "category": "Flexi Cap",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 500 TRI",
+   "nav": 149.6,
+   "aumCr": 26474,
+   "expenseRatio": 1.12,
+   "returns": {
+    "1y": 14.55,
+    "3y": 13.1,
+    "5y": null
+   },
+   "launchDate": "2015-04-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-4-0",
+   "name": "Sample Alpha ELSS Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Alpha",
+   "category": "ELSS",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 500 TRI",
+   "nav": 318.16,
+   "aumCr": 11211,
+   "expenseRatio": 1.33,
+   "returns": {
+    "1y": 21.89,
+    "3y": 14.68,
+    "5y": 16.69
+   },
+   "launchDate": "2017-05-15",
+   "exitLoad": "Nil (3-year lock-in)"
+  },
+  {
+   "id": "sample-4-1",
+   "name": "Sample Beta ELSS Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Beta",
+   "category": "ELSS",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 500 TRI",
+   "nav": 138.12,
+   "aumCr": 44113,
+   "expenseRatio": 0.51,
+   "returns": {
+    "1y": 20.59,
+    "3y": 13.93,
+    "5y": 15.92
+   },
+   "launchDate": "2018-05-15",
+   "exitLoad": "Nil (3-year lock-in)"
+  },
+  {
+   "id": "sample-5-0",
+   "name": "Sample Beta Index Fund Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Beta",
+   "category": "Index Fund",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 50 TRI",
+   "nav": 226.17,
+   "aumCr": 2052,
+   "expenseRatio": 1.5,
+   "returns": {
+    "1y": 7.58,
+    "3y": 13.06,
+    "5y": 12.01
+   },
+   "launchDate": "2006-06-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-5-1",
+   "name": "Sample Gamma Index Fund Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Gamma",
+   "category": "Index Fund",
+   "assetClass": "Equity",
+   "risk": "Very High",
+   "benchmark": "NIFTY 50 TRI",
+   "nav": 149.42,
+   "aumCr": 31379,
+   "expenseRatio": 1.37,
+   "returns": {
+    "1y": 19.88,
+    "3y": 12.32,
+    "5y": 11.6
+   },
+   "launchDate": "2007-06-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-6-0",
+   "name": "Sample Gamma Aggressive Hybrid Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Gamma",
+   "category": "Aggressive Hybrid",
+   "assetClass": "Hybrid",
+   "risk": "Very High",
+   "benchmark": "CRISIL Hybrid 35+65 Aggressive Index",
+   "nav": 425.77,
+   "aumCr": 21492,
+   "expenseRatio": 1.5,
+   "returns": {
+    "1y": 14.88,
+    "3y": 9.36,
+    "5y": 12.86
+   },
+   "launchDate": "2009-07-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-6-1",
+   "name": "Sample Delta Aggressive Hybrid Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Delta",
+   "category": "Aggressive Hybrid",
+   "assetClass": "Hybrid",
+   "risk": "Very High",
+   "benchmark": "CRISIL Hybrid 35+65 Aggressive Index",
+   "nav": 446.98,
+   "aumCr": 37040,
+   "expenseRatio": 0.81,
+   "returns": {
+    "1y": 13.53,
+    "3y": 11.31,
+    "5y": null
+   },
+   "launchDate": "2010-07-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-7-0",
+   "name": "Sample Delta Balanced Advantage Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Delta",
+   "category": "Balanced Advantage",
+   "assetClass": "Hybrid",
+   "risk": "Moderately High",
+   "benchmark": "NIFTY 50 Hybrid Composite Debt 50:50 Index",
+   "nav": 21.88,
+   "aumCr": 20937,
+   "expenseRatio": 0.6,
+   "returns": {
+    "1y": 11.34,
+    "3y": 8.47,
+    "5y": 8.21
+   },
+   "launchDate": "2012-08-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-7-1",
+   "name": "Sample Alpha Balanced Advantage Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Alpha",
+   "category": "Balanced Advantage",
+   "assetClass": "Hybrid",
+   "risk": "Moderately High",
+   "benchmark": "NIFTY 50 Hybrid Composite Debt 50:50 Index",
+   "nav": 68.65,
+   "aumCr": 11368,
+   "expenseRatio": 1.0,
+   "returns": {
+    "1y": 11.84,
+    "3y": 11.49,
+    "5y": 8.28
+   },
+   "launchDate": "2013-08-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-8-0",
+   "name": "Sample Alpha Arbitrage Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Alpha",
+   "category": "Arbitrage",
+   "assetClass": "Hybrid",
+   "risk": "Low",
+   "benchmark": "NIFTY 50 Arbitrage Index",
+   "nav": 252.65,
+   "aumCr": 39787,
+   "expenseRatio": 1.77,
+   "returns": {
+    "1y": 6.57,
+    "3y": 7.16,
+    "5y": 5.56
+   },
+   "launchDate": "2015-09-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-8-1",
+   "name": "Sample Beta Arbitrage Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Beta",
+   "category": "Arbitrage",
+   "assetClass": "Hybrid",
+   "risk": "Low",
+   "benchmark": "NIFTY 50 Arbitrage Index",
+   "nav": 169.14,
+   "aumCr": 39823,
+   "expenseRatio": 2.02,
+   "returns": {
+    "1y": 6.45,
+    "3y": 5.38,
+    "5y": 5.35
+   },
+   "launchDate": "2016-09-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-9-0",
+   "name": "Sample Beta Liquid Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Beta",
+   "category": "Liquid",
+   "assetClass": "Debt",
+   "risk": "Low to Moderate",
+   "benchmark": "CRISIL Liquid Debt A-I Index",
+   "nav": 114.2,
+   "aumCr": 21977,
+   "expenseRatio": 0.67,
+   "returns": {
+    "1y": 6.15,
+    "3y": 5.97,
+    "5y": 5.51
+   },
+   "launchDate": "2018-01-15",
+   "exitLoad": "Nil"
+  },
+  {
+   "id": "sample-9-1",
+   "name": "Sample Gamma Liquid Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Gamma",
+   "category": "Liquid",
+   "assetClass": "Debt",
+   "risk": "Low to Moderate",
+   "benchmark": "CRISIL Liquid Debt A-I Index",
+   "nav": 173.73,
+   "aumCr": 25615,
+   "expenseRatio": 0.96,
+   "returns": {
+    "1y": 6.67,
+    "3y": null,
+    "5y": null
+   },
+   "launchDate": "2021-06-01",
+   "exitLoad": "Nil"
+  },
+  {
+   "id": "sample-10-0",
+   "name": "Sample Gamma Short Duration Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Gamma",
+   "category": "Short Duration",
+   "assetClass": "Debt",
+   "risk": "Moderate",
+   "benchmark": "CRISIL Short Duration Debt A-II Index",
+   "nav": 237.79,
+   "aumCr": 27906,
+   "expenseRatio": 0.74,
+   "returns": {
+    "1y": 7.78,
+    "3y": null,
+    "5y": null
+   },
+   "launchDate": "2021-06-01",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-10-1",
+   "name": "Sample Delta Short Duration Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Delta",
+   "category": "Short Duration",
+   "assetClass": "Debt",
+   "risk": "Moderate",
+   "benchmark": "CRISIL Short Duration Debt A-II Index",
+   "nav": 406.0,
+   "aumCr": 35164,
+   "expenseRatio": 0.9,
+   "returns": {
+    "1y": 5.68,
+    "3y": 7.34,
+    "5y": 6.21
+   },
+   "launchDate": "2008-02-15",
+   "exitLoad": "1% if redeemed within 1 year"
+  },
+  {
+   "id": "sample-11-0",
+   "name": "Sample Delta Corporate Bond Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Delta",
+   "category": "Corporate Bond",
+   "assetClass": "Debt",
+   "risk": "Moderate",
+   "benchmark": "CRISIL Corporate Debt A-II Index",
+   "nav": 57.35,
+   "aumCr": 28652,
+   "expenseRatio": 0.25,
+   "returns": {
+    "1y": 7.08,
+    "3y": 5.95,
+    "5y": 6.15
+   },
+   "launchDate": "2010-03-15",
+   "exitLoad": "Nil"
+  },
+  {
+   "id": "sample-11-1",
+   "name": "Sample Alpha Corporate Bond Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Alpha",
+   "category": "Corporate Bond",
+   "assetClass": "Debt",
+   "risk": "Moderate",
+   "benchmark": "CRISIL Corporate Debt A-II Index",
+   "nav": 160.94,
+   "aumCr": 2650,
+   "expenseRatio": 0.2,
+   "returns": {
+    "1y": 6.32,
+    "3y": 6.13,
+    "5y": 5.97
+   },
+   "launchDate": "2011-03-15",
+   "exitLoad": "Nil"
+  },
+  {
+   "id": "sample-12-0",
+   "name": "Sample Alpha Gilt Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Alpha",
+   "category": "Gilt",
+   "assetClass": "Debt",
+   "risk": "Moderate",
+   "benchmark": "CRISIL Dynamic Gilt Index",
+   "nav": 23.17,
+   "aumCr": 39382,
+   "expenseRatio": 0.69,
+   "returns": {
+    "1y": 6.95,
+    "3y": 5.95,
+    "5y": 6.13
+   },
+   "launchDate": "2013-04-15",
+   "exitLoad": "Nil"
+  },
+  {
+   "id": "sample-12-1",
+   "name": "Sample Beta Gilt Fund – Regular Plan – Growth (sample)",
+   "amc": "Sample AMC Beta",
+   "category": "Gilt",
+   "assetClass": "Debt",
+   "risk": "Moderate",
+   "benchmark": "CRISIL Dynamic Gilt Index",
+   "nav": 171.5,
+   "aumCr": 5791,
+   "expenseRatio": 0.88,
+   "returns": {
+    "1y": 6.89,
+    "3y": 8.48,
+    "5y": null
+   },
+   "launchDate": "2014-04-15",
+   "exitLoad": "Nil"
+  }
+ ]
+}

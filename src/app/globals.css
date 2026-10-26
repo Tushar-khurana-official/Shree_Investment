@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-mocha: var(--mocha);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-card: 20px;
+  --radius-card-sm: 16px;
+
+  --animate-fade-up: fade-up 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  /* text-wrap: pretty is costly on long pages, so it is limited to lead paragraphs. */
+  .text-lg, .text-xl { text-wrap: pretty; }
+  ::selection { background: var(--primary); color: var(--on-primary); }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  a { text-underline-offset: 0.2em; }
+}
+
+@layer components {
+  .container-content {
+    width: 100%;
+    max-width: var(--max-content);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-content { padding-inline: 2rem; }
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tabular { font-variant-numeric: tabular-nums; }
+  .hairline { border-color: var(--border); }
+  .prose-editorial { max-width: 68ch; }
+  .prose-editorial > * + * { margin-top: 1.1em; }
+  .prose-editorial h2 { font-size: 1.75rem; margin-top: 2.2em; }
+  .prose-editorial h3 { font-size: 1.3rem; margin-top: 1.8em; }
+  .prose-editorial a { color: var(--primary); text-decoration: underline; }
+  .prose-editorial ul { list-style: disc; padding-left: 1.25rem; }
+  .prose-editorial ol { list-style: decimal; padding-left: 1.25rem; }
+  .prose-editorial li + li { margin-top: 0.4em; }
+  .prose-editorial blockquote {
+    border-left: 2px solid var(--primary);
+    padding-left: 1rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+  .prose-editorial table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  .prose-editorial th, .prose-editorial td { border-bottom: 1px solid var(--border); padding: 0.5rem 0.25rem; text-align: left; }
+
+  /* Range input styling (Slider component) */
+  .range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 1.5rem;
+    background: transparent;
+    cursor: pointer;
+  }
+  .range::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--primary) var(--fill, 50%), var(--border) var(--fill, 50%));
+  }
+  .range::-moz-range-track { height: 4px; border-radius: 999px; background: var(--border); }
+  .range::-moz-range-progress { height: 4px; border-radius: 999px; background: var(--primary); }
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -8px;
+    width: 20px; height: 20px; border-radius: 999px;
+    background: var(--surface);
+    border: 2px solid var(--primary);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+    transition: transform 150ms ease;
+  }
+  .range::-moz-range-thumb {
+    width: 18px; height: 18px; border-radius: 999px;
+    background: var(--surface); border: 2px solid var(--primary);
+  }
+  .range:active::-webkit-slider-thumb { transform: scale(1.1); }
+  .range:focus-visible { outline: none; }
+  .range:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--primary); outline-offset: 3px; }
+  .range:focus-visible::-moz-range-thumb { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+  .consent-set .cookie-banner { display: none; }
+
+  /* Scroll reveal (FadeUp). Hidden only once JS has marked the document, so no-JS users see everything. */
+  .js .reveal { opacity: 0; transform: translateY(16px); }
+  .js .reveal.is-visible { animation: var(--animate-fade-up); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+@media print {
+  header, footer, .no-print { display: none !important; }
+}
