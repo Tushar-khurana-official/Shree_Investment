@@ -38,8 +38,8 @@ export const site = {
   // Firm
   // ---------------------------------------------------------------------------
   firm: {
-    name: "Meridian Family Wealth", // TODO: legal / trading name of the firm
-    shortName: "Meridian", // TODO: short name used in the logo and compact spaces
+    name: "Shree Investments",
+    shortName: "Shree Investments", // short name used in the logo and compact spaces
     tagline: "Unhurried financial planning for Indian families", // TODO
     description:
       "An AMFI-registered mutual fund distributor helping families plan for retirement, education and the big purchases in between, with a written plan and reviews that change something.", // TODO
