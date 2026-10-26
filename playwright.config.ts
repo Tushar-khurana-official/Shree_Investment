@@ -22,6 +22,7 @@ export default defineConfig({
       LEADS_STORE_PATH: ".data/e2e-leads.jsonl",
       LEADS_RATE_LIMIT_MAX: "1000",
       LEADS_NOTIFY_PROVIDER: "console",
+      NEXT_PUBLIC_SHOW_PLACEHOLDERS: "true",
     },
   },
 });

@@ -1,5 +1,6 @@
 "use client";
 
+import { Tween } from "@/components/ui/Tween";
 import { useMemo, useState } from "react";
 import { calculateSip, sipFutureValue } from "@/lib/calculators";
 import { formatINR, formatINRCompact } from "@/lib/format";
@@ -38,9 +39,9 @@ export function SipCalculator({ initialMonthly = 10000, initialYears = 15, initi
       }
       results={
         <ResultGrid>
-          <ResultItem emphasis label="Estimated value" value={formatINRCompact(r.value)} note={formatINR(r.value)} />
-          <ResultItem label="Total invested" value={formatINRCompact(r.invested)} note={formatINR(r.invested)} />
-          <ResultItem label="Estimated growth" value={formatINRCompact(r.growth)} note={formatINR(r.growth)} />
+          <ResultItem emphasis label="Estimated value" value={<Tween value={r.value} format={formatINRCompact} />} note={formatINR(r.value)} />
+          <ResultItem label="Total invested" value={<Tween value={r.invested} format={formatINRCompact} />} note={formatINR(r.invested)} />
+          <ResultItem label="Estimated growth" value={<Tween value={r.growth} format={formatINRCompact} />} note={formatINR(r.growth)} />
           <ResultItem
             className="sm:col-span-2"
             label="Returns overtake invested capital"

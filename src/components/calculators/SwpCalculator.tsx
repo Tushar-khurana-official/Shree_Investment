@@ -1,5 +1,6 @@
 "use client";
 
+import { Tween } from "@/components/ui/Tween";
 import { useMemo, useState } from "react";
 import { calculateSwp } from "@/lib/calculators";
 import { formatDuration, formatINR, formatINRCompact } from "@/lib/format";
@@ -43,8 +44,8 @@ export function SwpCalculator() {
       results={
         <ResultGrid>
           <ResultItem emphasis label="The corpus lasts" value={lastsText} note={r.outlastsDuration ? "Monthly growth covers the withdrawal at this assumed return." : `${r.monthsLasted} monthly withdrawals`} />
-          <ResultItem label="Ending balance" value={formatINRCompact(r.endingBalance)} note={formatINR(r.endingBalance)} />
-          <ResultItem label="Total withdrawn" value={formatINRCompact(r.totalWithdrawn)} note={formatINR(r.totalWithdrawn)} />
+          <ResultItem label="Ending balance" value={<Tween value={r.endingBalance} format={formatINRCompact} />} note={formatINR(r.endingBalance)} />
+          <ResultItem label="Total withdrawn" value={<Tween value={r.totalWithdrawn} format={formatINRCompact} />} note={formatINR(r.totalWithdrawn)} />
         </ResultGrid>
       }
       comparison={<ReturnComparison metricLabel="How long the corpus lasts" activeRate={rate} onSelect={setRate} compute={lastsFor} />}

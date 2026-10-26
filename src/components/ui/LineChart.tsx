@@ -15,6 +15,12 @@ export type ChartSeries = {
 
 export type ChartMarker = { x: number; label: string };
 
+/**
+ * Lines redraw smoothly when inputs change: the path is also set as the CSS `d` property, which browsers that
+ * support it (Chromium) transition over 400ms. Other browsers simply update. Reduced motion disables transitions.
+ */
+const morph = (d: string) => ({ d: `path("${d}")`, transition: "d 400ms cubic-bezier(0.2, 0.7, 0.2, 1)" }) as React.CSSProperties;
+
 const PAD = { top: 16, right: 16, bottom: 32, left: 64 };
 
 function niceMax(v: number) {
@@ -100,7 +106,7 @@ export function LineChart({
               key={`${s.key}-area`}
               d={`${path(s.key)} L${sx(xMax)},${sy(0)} L${sx(xMin)},${sy(0)} Z`}
               fill={`url(#grad-${s.key})`}
-              className="transition-all duration-500"
+              style={morph(`${path(s.key)} L${sx(xMax)},${sy(0)} L${sx(xMin)},${sy(0)} Z`)}
             />
           ) : null,
         )}
@@ -108,6 +114,7 @@ export function LineChart({
           <path
             key={s.key}
             d={path(s.key)}
+            style={morph(path(s.key))}
             fill="none"
             stroke={s.color}
             strokeWidth={s.dashed ? 2 : 2.5}

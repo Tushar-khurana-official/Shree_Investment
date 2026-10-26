@@ -7,7 +7,9 @@ import { SkipLink } from "@/components/layout/SkipLink";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { PlaceholderRibbon } from "@/components/layout/PlaceholderRibbon";
 import { Analytics } from "@/components/layout/Analytics";
-import { themeScript } from "@/components/layout/ThemeToggle";
+import { AmbientBackground } from "@/components/layout/AmbientBackground";
+import { bootScript } from "@/lib/boot-script";
+import { palette } from "@/styles/tokens";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { ToastProvider } from "@/components/ui/Toast";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -35,25 +37,29 @@ export const metadata: Metadata = {
   robots: site.launch.allowIndexing ? { index: true, follow: true } : { index: false, follow: false },
   openGraph: { siteName: site.firm.name, locale: "en_IN", type: "website" },
   twitter: { card: "summary_large_image" },
+  icons: { icon: [{ url: site.firm.favicon, type: "image/svg+xml" }] },
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F5EEDC" },
-    { media: "(prefers-color-scheme: dark)", color: "#0F1A16" },
-  ],
+  themeColor: palette.bg,
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={`${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html
+      lang="en-IN"
+      className={`${fraunces.variable} ${inter.variable}${site.motion.animatedBackground ? "" : " motion-static"}`}
+      suppressHydrationWarning
+    >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
         <JsonLd data={organizationJsonLd()} />
       </head>
       <body className="min-h-dvh">
+        <AmbientBackground />
         <ToastProvider>
           <SkipLink />
           <PlaceholderRibbon />

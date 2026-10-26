@@ -33,7 +33,7 @@ export function ReturnComparison({
                 aria-pressed={active}
                 className={cn(
                   "w-full rounded-card-sm border p-3 text-left transition-colors",
-                  active ? "border-primary bg-primary/10" : "border-border bg-surface hover:border-primary",
+                  active ? "border-primary bg-primary-soft" : "border-border bg-surface hover:border-primary",
                 )}
               >
                 <span className={cn("flex flex-col gap-0.5 text-xs font-medium sm:flex-row sm:items-center sm:justify-between", active ? "text-fg" : "text-muted")}>

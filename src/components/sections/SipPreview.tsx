@@ -1,5 +1,6 @@
 "use client";
 
+import { Tween } from "@/components/ui/Tween";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { sipFutureValue } from "@/lib/calculators";
@@ -34,7 +35,7 @@ export function SipPreview() {
         <dl className="space-y-5">
           <div className="flex flex-col">
             <dt className="eyebrow order-1">Projected value</dt>
-            <dd className="order-2 mt-1 font-display text-5xl text-primary tabular transition-all">{formatINRCompact(value)}</dd>
+            <dd className="order-2 mt-1 font-display text-5xl text-primary tabular transition-all"><Tween value={value} format={formatINRCompact} /></dd>
           </div>
         </dl>
         <div aria-hidden="true" className="mt-5 flex h-3 overflow-hidden rounded-full bg-primary/25">
@@ -46,13 +47,13 @@ export function SipPreview() {
               <dt className="order-1 flex items-center gap-2 text-sm text-muted">
                 <span aria-hidden="true" className="h-2.5 w-2.5 rounded-sm bg-mocha" /> Amount invested (solid)
               </dt>
-              <dd className="order-2 font-display text-2xl tabular">{formatINRCompact(invested)}</dd>
+              <dd className="order-2 font-display text-2xl tabular"><Tween value={invested} format={formatINRCompact} /></dd>
             </div>
             <div className="flex flex-col">
               <dt className="order-1 flex items-center gap-2 text-sm text-muted">
                 <span aria-hidden="true" className="h-2.5 w-2.5 rounded-sm bg-[repeating-linear-gradient(135deg,var(--primary)_0_2px,transparent_2px_4px)] ring-1 ring-primary" /> Potential growth (striped)
               </dt>
-              <dd className="order-2 font-display text-2xl tabular">{formatINRCompact(growth)}</dd>
+              <dd className="order-2 font-display text-2xl tabular"><Tween value={growth} format={formatINRCompact} /></dd>
             </div>
         </dl>
         <p className="mt-2 text-xs text-muted tabular">

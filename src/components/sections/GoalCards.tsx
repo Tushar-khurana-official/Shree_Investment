@@ -19,14 +19,20 @@ export function GoalCards() {
         </svg>
         Sorted by how long you have
       </p>
-      <ol className="grid gap-px overflow-hidden rounded-card border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+      <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {sorted.map((g, i) => (
-          <li key={g.id} className="flex flex-col bg-surface p-7">
+          <li
+            key={g.id}
+            className="group flex flex-col rounded-card border border-border bg-surface p-7 transition-[transform,border-color,box-shadow] duration-[250ms] ease-out hover:-translate-y-1 hover:border-primary hover:shadow-[0_18px_40px_-24px_color-mix(in_srgb,var(--primary)_45%,transparent)] focus-within:-translate-y-1 focus-within:border-primary"
+          >
             <div className="flex items-center justify-between gap-4">
               <span className="eyebrow tabular" aria-hidden="true">
                 Goal {String(i + 1).padStart(2, "0")}
               </span>
-              <Badge tone={g.years === null ? "warning" : "primary"}>
+              <Badge
+                tone={g.years === null ? "warning" : "primary"}
+                className="translate-x-2 transition-transform duration-[250ms] ease-out group-hover:translate-x-0 group-focus-within:translate-x-0"
+              >
                 <svg aria-hidden="true" viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <circle cx="8" cy="8" r="6" />
                   <path d="M8 5v3l2 1.5" strokeLinecap="round" />

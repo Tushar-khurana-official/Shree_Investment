@@ -31,14 +31,14 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             key={t.id}
             className={cn(
               "pointer-events-auto flex max-w-md items-center gap-3 rounded-full border bg-surface px-5 py-3 text-sm shadow-lg animate-fade-up",
-              t.tone === "error" ? "border-danger text-danger" : "border-border text-fg",
+              t.tone === "error" ? "border-risk text-risk" : "border-border text-fg",
             )}
           >
             <span
               aria-hidden="true"
               className={cn(
                 "flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold",
-                t.tone === "error" ? "bg-danger text-white" : "bg-primary text-on-primary",
+                t.tone === "error" ? "bg-risk text-on-primary" : "bg-primary text-on-primary",
               )}
             >
               {icons[t.tone]}

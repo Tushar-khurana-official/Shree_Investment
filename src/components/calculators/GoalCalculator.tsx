@@ -1,5 +1,6 @@
 "use client";
 
+import { Tween } from "@/components/ui/Tween";
 import { useMemo, useState } from "react";
 import { calculateGoal, requiredMonthlySip } from "@/lib/calculators";
 import { formatINR, formatINRCompact } from "@/lib/format";
@@ -30,9 +31,9 @@ export function GoalCalculator() {
       }
       results={
         <ResultGrid>
-          <ResultItem emphasis label="Monthly SIP needed" value={formatINR(r.monthly)} note={`for ${years * 12} months`} />
-          <ResultItem label="Total invested" value={formatINRCompact(r.invested)} note={formatINR(r.invested)} />
-          <ResultItem label="Estimated growth" value={formatINRCompact(r.growth)} note={formatINR(r.growth)} />
+          <ResultItem emphasis label="Monthly SIP needed" value={<Tween value={r.monthly} format={formatINR} />} note={`for ${years * 12} months`} />
+          <ResultItem label="Total invested" value={<Tween value={r.invested} format={formatINRCompact} />} note={formatINR(r.invested)} />
+          <ResultItem label="Estimated growth" value={<Tween value={r.growth} format={formatINRCompact} />} note={formatINR(r.growth)} />
         </ResultGrid>
       }
       comparison={<ReturnComparison metricLabel="Monthly SIP needed" activeRate={rate} onSelect={setRate} compute={(x) => formatINR(requiredMonthlySip(target, x, years))} />}

@@ -21,7 +21,7 @@ export function Field({ id, label, hint, error, required, children, className }:
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium">
         {label}
         {required ? (
-          <span className="text-danger" aria-hidden="true">
+          <span className="text-risk" aria-hidden="true">
             {" "}
             *
           </span>
@@ -36,7 +36,7 @@ export function Field({ id, label, hint, error, required, children, className }:
         </p>
       )}
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 flex items-start gap-1.5 text-sm text-danger" role="alert">
+        <p id={`${id}-error`} className="mt-1.5 flex items-start gap-1.5 text-sm text-risk" role="alert">
           <svg aria-hidden="true" viewBox="0 0 16 16" className="mt-0.5 h-4 w-4 shrink-0" fill="currentColor">
             <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm-.75 3.5h1.5v5h-1.5v-5Zm0 6h1.5V12h-1.5v-1.5Z" />
           </svg>
@@ -60,7 +60,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
       <input
         ref={ref}
         aria-invalid={invalid || undefined}
-        className={cn(fieldBase, invalid ? "border-danger" : "border-border", className)}
+        className={cn(fieldBase, invalid ? "border-risk" : "border-border", className)}
         {...rest}
       />
     );
@@ -73,7 +73,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaHTMLAttributes<H
       <textarea
         ref={ref}
         aria-invalid={invalid || undefined}
-        className={cn(fieldBase, "min-h-32 resize-y", invalid ? "border-danger" : "border-border", className)}
+        className={cn(fieldBase, "min-h-32 resize-y", invalid ? "border-risk" : "border-border", className)}
         {...rest}
       />
     );
@@ -89,7 +89,7 @@ export const Select = forwardRef<
       <select
         ref={ref}
         aria-invalid={invalid || undefined}
-        className={cn(fieldBase, "appearance-none pr-10", invalid ? "border-danger" : "border-border", className)}
+        className={cn(fieldBase, "appearance-none pr-10", invalid ? "border-risk" : "border-border", className)}
         {...rest}
       >
         {placeholder !== undefined && <option value="">{placeholder}</option>}
@@ -135,7 +135,7 @@ export function Checkbox({
         </label>
       </div>
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 pl-8 text-sm text-danger" role="alert">
+        <p id={`${id}-error`} className="mt-1.5 pl-8 text-sm text-risk" role="alert">
           <span className="sr-only">Error: </span>
           {error}
         </p>

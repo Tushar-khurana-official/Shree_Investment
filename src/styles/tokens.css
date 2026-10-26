@@ -1,42 +1,24 @@
-/* Design tokens: Emerald & Warm Ivory. Mirrors src/styles/tokens.ts (checked by a unit test). */
+/* Design tokens: Emerald & Warm Ivory, light mode only. Mirrors src/styles/tokens.ts (checked by a unit test). */
 :root {
+  --primary: #0A6A4A;
+  --primary-hover: #084F38;
+  --primary-soft: #DCEFE6;
+  --on-primary: #FFFFFF;
   --bg: #F5EEDC;
   --surface: #FFFDF7;
   --surface-2: #EFE7D2;
-  --fg: #1B2420;
-  --muted: #5C6661;
-  --border: #E3DCC8;
-  --primary: #0A6A4A;
-  --primary-hover: #084F38;
-  --on-primary: #FFFFFF;
   --accent: #E84A27;
-  --accent-hover: #F2603E;
-  --on-accent: #0B0F0D;
+  --accent-strong: #C2401F;
+  --accent-strong-hover: #A93619;
+  --on-accent: #FFFFFF;
+  --text: #1B2420;
+  --text-muted: #5C6661;
+  --border: #E3DCC8;
   --mocha: #7B4A2E;
-  --success: #0A6A4A;
-  --danger: #B3361B;
+  --risk: #B3361B;
   --radius-card: 20px;
   --radius-card-sm: 16px;
   --radius-pill: 999px;
   --max-content: 1200px;
   color-scheme: light;
-}
-
-.dark {
-  --bg: #0F1A16;
-  --surface: #17261F;
-  --surface-2: #1E3128;
-  --fg: #EEF3EF;
-  --muted: #A9B8B0;
-  --border: #2C4037;
-  --primary: #4FBF94;
-  --primary-hover: #6FD0A9;
-  --on-primary: #0F1A16;
-  --accent: #FF6B47;
-  --accent-hover: #FF8566;
-  --on-accent: #0F1A16;
-  --mocha: #D29A74;
-  --success: #4FBF94;
-  --danger: #FF8A70;
-  color-scheme: dark;
 }

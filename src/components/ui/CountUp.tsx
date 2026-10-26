@@ -12,7 +12,7 @@ export function CountUp({
   prefix = "",
   suffix = "",
   decimals = 0,
-  durationMs = 1400,
+  durationMs = 1200,
 }: {
   value: number;
   prefix?: string;

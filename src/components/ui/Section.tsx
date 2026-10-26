@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Eyebrow } from "./Eyebrow";
+import { FadeUp } from "./FadeUp";
 
 type SectionProps = {
   id?: string;
@@ -40,7 +41,7 @@ export function Section({
         className,
       )}
     >
-      <div className={cn("container-content py-16 md:py-24", rule && "border-t border-border")}>
+      <FadeUp className={cn("container-content py-16 md:py-24", rule && "border-t border-border")}>
         {(eyebrow || title || intro) && (
           <div className="mb-10 grid gap-5 md:mb-14 grid-cols-1 md:grid-cols-12">
             <div className="md:col-span-7">
@@ -68,7 +69,7 @@ export function Section({
           </div>
         )}
         {children}
-      </div>
+      </FadeUp>
     </section>
   );
 }

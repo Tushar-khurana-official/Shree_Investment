@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site } from "@config";
+import { isPlaceholder, site } from "@config";
 import { INSURANCE_STATEMENT } from "@/content/services";
 
 export function ProtectCallout() {
@@ -20,7 +20,7 @@ export function ProtectCallout() {
           <p className="font-medium text-on-primary">{INSURANCE_STATEMENT}</p>
           <p className="text-sm">
             Insurance is distributed under a separate IRDAI registration
-            {site.registration.insurance ? ` (${site.registration.insurance.number})` : ""}, not under our AMFI registration.{" "}
+            {site.registration.insurance && !isPlaceholder(site.registration.insurance.number) ? ` (${site.registration.insurance.number})` : ""}, not under our AMFI registration.{" "}
             <Link href="/services#insurance" className="underline">
               How we handle insurance
             </Link>

@@ -13,9 +13,9 @@ test("footer shows registration details and legal links on every page type", asy
   for (const path of ["/", "/calculators/sip", "/legal/disclaimer"]) {
     await page.goto(path);
     const footer = page.locator("footer");
-    await expect(footer).toContainText("ARN-");
+    await expect(footer).toContainText("AMFI ARN");
     await expect(footer).toContainText("EUIN");
-    await expect(footer).toContainText("Valid till");
+    await expect(footer).toContainText("Validity");
     await expect(footer).toContainText("Mutual fund investments are subject to market risks");
     for (const name of ["Privacy Policy", "Terms of Use", "Disclaimer", "Commission Disclosure", "Disclosures"]) {
       await expect(footer.getByRole("link", { name, exact: true })).toBeVisible();
@@ -24,11 +24,25 @@ test("footer shows registration details and legal links on every page type", asy
   }
 });
 
-test("fund houses render once each", async ({ page }) => {
+test("fund houses are announced once each; the marquee copy is aria-hidden", async ({ page }) => {
   await page.goto("/");
-  const names = await page.locator("#fund-houses li").allTextContents();
-  expect(names.length).toBeGreaterThan(0);
-  expect(new Set(names).size).toBe(names.length);
+  const announced = await page.locator("#fund-houses .marquee ul:not([aria-hidden]) li").allTextContents();
+  expect(announced.length).toBeGreaterThan(0);
+  expect(new Set(announced).size).toBe(announced.length);
+  await expect(page.locator("#fund-houses .marquee ul[aria-hidden='true']")).toHaveCount(1);
+  const listItems = await page.getByRole("region", { name: /empanelled fund houses/ }).getByRole("listitem").count();
+  expect(listItems).toBe(announced.length);
+});
+
+test("light mode only: a dark OS preference does not change colours", async ({ browser }) => {
+  const ctx = await browser.newContext({ colorScheme: "dark" });
+  const page = await ctx.newPage();
+  await page.goto("/");
+  const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  expect(bg).toBe("rgb(245, 238, 220)");
+  await expect(page.getByRole("link", { name: "Start planning" })).toHaveCSS("background-color", "rgb(10, 106, 74)");
+  await expect(page.getByRole("button", { name: /theme/i })).toHaveCount(0);
+  await ctx.close();
 });
 
 test("menu works by keyboard (desktop) or drawer (mobile)", async ({ page, isMobile }) => {

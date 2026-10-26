@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@config";
+import { site, arnInParens } from "@config";
 import { buildMetadata } from "@/lib/seo";
 import { processSteps, whyUsDetail } from "@/content/process";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -65,7 +65,7 @@ export default function ApproachPage() {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-4 text-lg">
             <p>
-              {site.firm.name} is a registered <strong>mutual fund distributor</strong> ({site.registration.arn}). We are{" "}
+              {site.firm.name} is a registered <strong>mutual fund distributor</strong>{arnInParens()}. We are{" "}
               <strong>not a SEBI-registered investment adviser</strong> (RIA). The difference matters: an RIA charges you a fee for advice
               and may not earn commission; a distributor is paid by the fund house.
             </p>

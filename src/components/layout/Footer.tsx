@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { formattedAddress, site } from "@config";
+import { Fragment } from "react";
+import { formattedAddress, showTodos, site } from "@config";
+import { ConfigText, allSet } from "@/components/ui/ConfigText";
 import { calculators } from "@/content/calculators";
 import { legalLinks } from "@/content/navigation";
 import { Logo } from "./Logo";
@@ -32,22 +34,30 @@ const columns = [
 
 export function Footer() {
   const r = site.registration;
+  // Placeholder values show a TODO marker in development and are hidden in production builds.
+  const registration = [
+    { label: "AMFI ARN", value: r.arn, todo: "ARN" },
+    { label: "EUIN", value: r.euin, todo: "EUIN" },
+    { label: "Registered on", value: r.amfiRegistrationDate, todo: "AMFI registration date" },
+    { label: "Validity", value: r.validTill, todo: "ARN validity date", prefix: allSet(r.validTill) ? "Valid till " : "" },
+  ].filter((row) => showTodos || allSet(row.value));
   return (
-    <footer className="border-t border-border bg-surface text-sm">
+    <footer className="border-t border-border bg-surface pb-20 text-sm md:pb-0">
       <div className="container-content py-14">
         <div className="grid gap-10 grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Logo />
             <p className="mt-4 max-w-sm text-muted">{site.firm.description}</p>
             <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 tabular">
-              <dt className="text-muted">AMFI ARN</dt>
-              <dd className="font-medium">{r.arn}</dd>
-              <dt className="text-muted">EUIN</dt>
-              <dd className="font-medium">{r.euin}</dd>
-              <dt className="text-muted">Registered on</dt>
-              <dd>{r.amfiRegistrationDate}</dd>
-              <dt className="text-muted">Validity</dt>
-              <dd>Valid till {r.validTill}</dd>
+              {registration.map((row) => (
+                <Fragment key={row.label}>
+                  <dt className="text-muted">{row.label}</dt>
+                  <dd className="font-medium">
+                    {row.prefix}
+                    <ConfigText value={row.value} label={row.todo} />
+                  </dd>
+                </Fragment>
+              ))}
             </dl>
           </div>
 
@@ -120,7 +130,7 @@ export function Footer() {
               Important
             </h2>
             <p className="mt-3 text-muted">
-              {site.firm.name} is an AMFI-registered mutual fund distributor ({r.arn}), not a SEBI-registered investment adviser.
+              {site.firm.name} is an AMFI-registered mutual fund distributor{allSet(r.arn) ? ` (${r.arn})` : ""}, not a SEBI-registered investment adviser.
               We earn trail commission from fund houses on the regular plans we distribute; see our{" "}
               <Link href="/legal/commission-disclosure" className="text-primary underline">
                 commission disclosure
@@ -137,7 +147,8 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-4 border-t border-border pt-6 text-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.firm.name}. {r.arn} · EUIN {r.euin} · Valid till {r.validTill}
+            © {new Date().getFullYear()} {site.firm.name}.
+            {allSet(r.arn, r.euin, r.validTill) && ` ${r.arn} · EUIN ${r.euin} · Valid till ${r.validTill}`}
           </p>
           <nav aria-label="Legal">
             <ul className="flex flex-wrap gap-x-5 gap-y-2">

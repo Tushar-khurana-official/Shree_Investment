@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { site, siteUrl } from "@config";
+import { site, siteUrl, arnInParens } from "@config";
 import { buildMetadata } from "@/lib/seo";
 import { articleLoaders, CATEGORY_LABELS, getInsight, insights, relatedInsights } from "@/content/insights";
 import { formatDate } from "@/lib/format";
@@ -69,7 +69,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
         </article>
         <aside aria-label="Disclaimer" className="mt-12 max-w-[68ch] rounded-card-sm border border-border bg-surface-2 p-5 text-sm">
           <strong>Disclaimer:</strong> This article is for general education only and is not investment, tax or legal advice, nor a
-          recommendation of any scheme. {site.firm.name} is an AMFI-registered mutual fund distributor ({site.registration.arn}), not a
+          recommendation of any scheme. {site.firm.name} is an AMFI-registered mutual fund distributor{arnInParens()}, not a
           SEBI-registered investment adviser. Mutual fund investments are subject to market risks, read all scheme related documents carefully.
           Past performance is not indicative of future returns.
         </aside>

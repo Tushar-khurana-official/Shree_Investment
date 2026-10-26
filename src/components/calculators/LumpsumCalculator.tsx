@@ -1,5 +1,6 @@
 "use client";
 
+import { Tween } from "@/components/ui/Tween";
 import { useMemo, useState } from "react";
 import { calculateLumpsum, lumpsumFutureValue } from "@/lib/calculators";
 import { formatINR, formatINRCompact } from "@/lib/format";
@@ -30,9 +31,9 @@ export function LumpsumCalculator() {
       }
       results={
         <ResultGrid>
-          <ResultItem emphasis label="Estimated future value" value={formatINRCompact(r.value)} note={formatINR(r.value)} />
-          <ResultItem label="Amount invested" value={formatINRCompact(amount)} note={formatINR(amount)} />
-          <ResultItem label="Estimated growth" value={formatINRCompact(r.growth)} note={formatINR(r.growth)} />
+          <ResultItem emphasis label="Estimated future value" value={<Tween value={r.value} format={formatINRCompact} />} note={formatINR(r.value)} />
+          <ResultItem label="Amount invested" value={<Tween value={amount} format={formatINRCompact} />} note={formatINR(amount)} />
+          <ResultItem label="Estimated growth" value={<Tween value={r.growth} format={formatINRCompact} />} note={formatINR(r.growth)} />
         </ResultGrid>
       }
       comparison={

@@ -122,12 +122,12 @@ export function ContactForm() {
       </h2>
       {context && <p className="rounded-card-sm border border-border bg-surface-2 p-4 text-sm">{context}</p>}
       {errorCount > 0 && (
-        <p role="alert" className="rounded-card-sm border border-danger bg-danger/5 p-4 text-sm text-danger">
+        <p role="alert" className="rounded-card-sm border border-risk bg-risk/5 p-4 text-sm text-risk">
           Please fix {errorCount === 1 ? "1 field" : `${errorCount} fields`} below.
         </p>
       )}
       <p className="text-sm text-muted">
-        Fields marked <span aria-hidden="true" className="text-danger">*</span>
+        Fields marked <span aria-hidden="true" className="text-risk">*</span>
         <span className="sr-only">with an asterisk</span> are required.
       </p>
 

@@ -1,8 +1,8 @@
-import { site } from "@config";
+import { site, isPlaceholder } from "@config";
 
 export function TrustBar() {
   const items = [
-    { label: "AMFI Registered", detail: site.registration.arn },
+    { label: "AMFI Registered", detail: isPlaceholder(site.registration.arn) ? "Mutual fund distributor" : site.registration.arn },
     ...site.founder.qualifications.map((q) => ({ label: q.short, detail: q.short === "NISM Series V-A" ? "Certified" : "Qualified" })),
     { label: site.founder.degree.short, detail: "Degree" },
   ];

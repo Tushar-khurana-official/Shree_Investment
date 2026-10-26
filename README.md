@@ -11,7 +11,7 @@ One codebase can serve any distributor: firm details, registration, contacts, fu
 | | |
 |---|---|
 | Framework | Next.js 15 (App Router), React 19, TypeScript |
-| Styling | Tailwind CSS v4, design tokens in `src/styles/tokens.{ts,css}`, light and dark modes |
+| Styling | Tailwind CSS v4, design tokens in `src/styles/tokens.{ts,css}`, light mode only |
 | Fonts | Fraunces (display) and Inter (body), self-hosted through `next/font` |
 | Content | TypeScript and JSON content files, MDX articles |
 | Tests | Vitest (formulas, validation, contrast, compliance copy), Playwright + axe-core (end to end and accessibility) |
@@ -34,7 +34,7 @@ Requires Node.js 20.9 or later.
 | `npm run build` / `npm start` | Production build and server |
 | `npm run lint` / `npm run typecheck` | ESLint and TypeScript |
 | `npm test` | Unit tests (calculators, validation, contrast, compliance) |
-| `npm run test:e2e` | Builds, starts the site and runs Playwright end-to-end and axe accessibility tests on every page, in light and dark mode |
+| `npm run test:e2e` | Builds, starts the site and runs Playwright end-to-end and axe accessibility tests on every page (also with a dark OS preference, which the site ignores) |
 | `npm run placeholders` | Lists every remaining TODO and placeholder |
 
 For `test:e2e`, install the browser once with `npx playwright install chromium` if it is not already available.
@@ -45,6 +45,14 @@ For `test:e2e`, install the browser once with `npx playwright install chromium` 
 - **"Cross origin request detected" warning.** This appears when you open the dev server by network IP (for example from your phone). Addresses on `192.168.x.x` and `10.x.x.x` networks are allowed in `next.config.ts` (`allowedDevOrigins`); add yours if it is different. It never affects the live site.
 - **Some buttons go to example.com or a dummy number.** Client Login, the app store links, KYC links, Google Maps, phone and WhatsApp all use placeholder values. Set the real ones in `site.config.ts`.
 - **"Too many requests" on the contact form.** The production limit is 5 enquiries per device per 10 minutes. Development allows 100, and `LEADS_RATE_LIMIT_MAX` overrides both.
+
+## Motion
+
+- **Background** (`src/components/layout/AmbientBackground.tsx`, `Constellation.tsx`): Warm Ivory with two slowly drifting glows, a faint grid, and a constellation canvas (55 nodes on desktop, 20 on mobile, 30fps, pixel ratio capped at 2). The canvas starts after the hero entrance and pauses when the tab is hidden or the hero is off screen.
+- **Turn the background animation off site-wide:** set `motion.animatedBackground: false` in `site.config.ts`. The glows stay still and no canvas is drawn.
+- **Hero:** CSS entrance sequence (eyebrow, word-by-word headline, staggered fades), line-draw illustration, and a desktop-only cursor tilt (`Tilt.tsx`, which loads Motion only on desktop).
+- **Elsewhere:** section reveals (24px, 700ms, at 15% visibility), stat count-ups (1.2s), goal-card hover lift, a scroll-drawn process line, the fund-house marquee, 400ms calculator tweens with chart morphing, a three-cycle WhatsApp pulse, and a 200ms fade between pages.
+- **Reduced motion:** with the OS "reduce motion" setting, everything shows its final state, loops stop, the canvas shows one still frame, and there is no tilt.
 
 ## Environment variables
 
@@ -132,7 +140,8 @@ mfd-website/
 - **Storage** writes to a local file. On serverless hosting, swap `storeLead` for a database or CRM call.
 - **Cookie consent**: "Decline non-essential" and "Accept all" share identical styles (an end-to-end test checks this). Analytics loads only after acceptance. Visitors can reopen the choice from "Cookie settings" in the footer.
 - **Accessibility**: skip link, landmarks, one `h1` per page, disclosure-pattern dropdowns with Esc support, native `<dialog>` for the mobile menu and modal, labelled sliders with `aria-valuetext`, debounced live announcements of results, visible focus rings, and `prefers-reduced-motion` respected by both CSS and JS. Risk levels, gains and chart series always carry text or pattern, never colour alone.
-- **Contrast**: white on Vermilion is 3.9:1, which fails AA for button text, so accent buttons use near-black text (5.0:1). White on Emerald is 6.6:1. In dark mode, both primary and accent buttons use dark text. `tests/unit/contrast.test.ts` verifies every pair.
+- **Contrast**: white on Vermilion `#E84A27` is 3.9:1, which fails AA, so accent buttons use `--accent-strong` `#C2401F` with white text (5.2:1), and `#E84A27` is kept for large display text and decoration. White on Emerald is 6.6:1. `--accent-strong` as small text is 5.1:1 on Surface but 4.49:1 on Ivory, so small accent text sits on Surface. `tests/unit/contrast.test.ts` verifies every pair and fails if a component hard-codes a hex colour.
+- **Placeholders**: values still unset in `site.config.ts` (bracketed, TODO, or an all-zero ARN/EUIN) show as a visible TODO marker in development and are hidden in production builds, on the hero, stats, trust line and footer.
 - **SEO**: per-page title, description and canonical; Open Graph and Twitter cards; generated OG image; sitemap; robots; JSON-LD for Organization and FinancialService (site-wide), BreadcrumbList, WebApplication (each calculator), FAQPage (Mutual Funds Explained) and Article (insights). **Indexing is off until `site.launch.allowIndexing` is true.**
 - **Compliance guardrails**: `tests/unit/compliance.test.ts` fails the build's test run if banned phrases appear ("best fund", "top pick", "risk-free", "assured returns"), if "guaranteed" is used other than in a negation, if required statements are removed, or if fund houses are duplicated.
 

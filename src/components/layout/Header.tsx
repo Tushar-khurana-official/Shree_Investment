@@ -9,7 +9,6 @@ import { ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
-import { ThemeToggle } from "./ThemeToggle";
 
 function isActive(pathname: string, href?: string) {
   if (!href) return false;
@@ -110,7 +109,7 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-40 border-b transition-colors duration-300",
-        scrolled ? "border-border bg-bg/90 backdrop-blur-md" : "border-transparent bg-bg",
+        scrolled ? "border-border bg-surface/95 shadow-sm" : "border-border/60 bg-surface/80",
       )}
     >
       <div className="container-content flex h-18 items-center justify-between gap-4">
@@ -138,7 +137,6 @@ export function Header() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <span className="hidden md:inline-flex">
             <ButtonLink href={site.links.clientLogin} external variant="secondary" size="sm">
               Client Login

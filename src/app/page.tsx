@@ -20,7 +20,7 @@ import { Section } from "@/components/ui/Section";
 export const metadata: Metadata = {
   ...buildMetadata({
     title: `${site.firm.name}: ${site.firm.tagline}`,
-    description: `${site.firm.description} AMFI ${site.registration.arn}.`,
+    description: site.firm.description,
     path: "/",
   }),
   title: { absolute: `${site.firm.name}: ${site.firm.tagline}` },

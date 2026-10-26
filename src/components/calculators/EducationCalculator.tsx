@@ -1,5 +1,6 @@
 "use client";
 
+import { Tween } from "@/components/ui/Tween";
 import { useMemo, useState } from "react";
 import { calculateEducation } from "@/lib/calculators";
 import { formatINR, formatINRCompact } from "@/lib/format";
@@ -32,9 +33,9 @@ export function EducationCalculator() {
       }
       results={
         <ResultGrid>
-          <ResultItem emphasis label="Estimated fee at enrolment" value={formatINRCompact(r.futureFee)} note={`${formatINR(r.futureFee)} in ${years} years`} />
-          <ResultItem label="Monthly SIP needed" value={formatINR(r.monthlySip)} note={`for ${years * 12} months`} />
-          <ResultItem label="Total invested" value={formatINRCompact(r.invested)} note={formatINR(r.invested)} />
+          <ResultItem emphasis label="Estimated fee at enrolment" value={<Tween value={r.futureFee} format={formatINRCompact} />} note={`${formatINR(r.futureFee)} in ${years} years`} />
+          <ResultItem label="Monthly SIP needed" value={<Tween value={r.monthlySip} format={formatINR} />} note={`for ${years * 12} months`} />
+          <ResultItem label="Total invested" value={<Tween value={r.invested} format={formatINRCompact} />} note={formatINR(r.invested)} />
         </ResultGrid>
       }
       comparison={<ReturnComparison metricLabel="Monthly SIP needed" activeRate={rate} onSelect={setRate} compute={(x) => formatINR(calculateEducation(fee, years, inflation, x).monthlySip)} />}

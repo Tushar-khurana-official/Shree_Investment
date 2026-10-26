@@ -1,5 +1,6 @@
 "use client";
 
+import { Tween } from "@/components/ui/Tween";
 import { useMemo, useState } from "react";
 import { calculateRetirement, type RetirementInput } from "@/lib/calculators";
 import { formatINR, formatINRCompact } from "@/lib/format";
@@ -57,9 +58,9 @@ export function RetirementCalculator() {
       }
       results={
         <ResultGrid>
-          <ResultItem emphasis label="Corpus required at retirement" value={formatINRCompact(r.corpus)} note={`${formatINR(r.corpus)}, at age ${input.retirementAge}`} />
-          <ResultItem label="Monthly SIP needed" value={formatINR(r.monthlySip)} note={`for ${r.yearsToRetirement} years`} />
-          <ResultItem label="Monthly expenses at retirement" value={formatINR(r.monthlyExpenseAtRetirement)} note={`today's ${formatINR(input.monthlyExpenses)} after ${r.yearsToRetirement} years of ${input.inflationPct}% inflation`} />
+          <ResultItem emphasis label="Corpus required at retirement" value={<Tween value={r.corpus} format={formatINRCompact} />} note={`${formatINR(r.corpus)}, at age ${input.retirementAge}`} />
+          <ResultItem label="Monthly SIP needed" value={<Tween value={r.monthlySip} format={formatINR} />} note={`for ${r.yearsToRetirement} years`} />
+          <ResultItem label="Monthly expenses at retirement" value={<Tween value={r.monthlyExpenseAtRetirement} format={formatINR} />} note={`today's ${formatINR(input.monthlyExpenses)} after ${r.yearsToRetirement} years of ${input.inflationPct}% inflation`} />
         </ResultGrid>
       }
       comparison={

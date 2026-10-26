@@ -47,6 +47,7 @@ export const site = {
     city: "[City]", // TODO
     foundedYear: 2010, // TODO
     logo: "/images/logo.svg", // TODO: replace with the firm's logo (SVG preferred)
+    favicon: "/favicon.svg", // browser-tab icon (TODO: replace with the firm's mark)
   },
 
   // ---------------------------------------------------------------------------
@@ -180,6 +181,18 @@ export const site = {
   },
 
   // ---------------------------------------------------------------------------
+  // Motion
+  // ---------------------------------------------------------------------------
+  motion: {
+    /**
+     * Animated page background (drifting glows and the constellation canvas). Set to false to turn it off
+     * site-wide: the glows stay still and no canvas is drawn. Visitors with "reduce motion" switched on
+     * always get a still background, whatever this says.
+     */
+    animatedBackground: true,
+  },
+
+  // ---------------------------------------------------------------------------
   // Launch switches
   // ---------------------------------------------------------------------------
   launch: {
@@ -212,6 +225,29 @@ export function uniqueFundHouses(): readonly FundHouse[] {
 export function whatsappHref(message: string = site.contact.whatsappMessage): string {
   return `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(message)}`;
 }
+
+/**
+ * True when a config value is still a placeholder: empty, bracketed ("[City]"), containing TODO,
+ * or an all-zero registration number ("ARN-000000", "E000000").
+ */
+export function isPlaceholder(value: string | null | undefined): boolean {
+  if (!value || !value.trim()) return true;
+  const v = value.trim();
+  return /^\[.*\]$/.test(v) || /TODO/i.test(v) || /^(ARN-)?E?0+$/i.test(v);
+}
+
+/** " (ARN-123456)" when the ARN is set, otherwise "", for use inside sentences. */
+export function arnInParens(): string {
+  return isPlaceholder(site.registration.arn) ? "" : ` (${site.registration.arn})`;
+}
+
+/**
+ * Whether unfinished placeholders are shown as visible TODO markers.
+ * On in development; off in production builds, where unset values are hidden instead.
+ * NEXT_PUBLIC_SHOW_PLACEHOLDERS=true forces markers on (used by the end-to-end tests).
+ */
+export const showTodos =
+  process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_SHOW_PLACEHOLDERS === "true";
 
 export function siteUrl(): string {
   return (process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com").replace(/\/$/, "");

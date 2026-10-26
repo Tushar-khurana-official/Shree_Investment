@@ -5,9 +5,9 @@ type Tone = "neutral" | "primary" | "warning" | "danger" | "outline";
 
 const tones: Record<Tone, string> = {
   neutral: "bg-surface-2 text-fg",
-  primary: "bg-primary/10 text-primary",
+  primary: "bg-primary-soft text-primary",
   warning: "bg-accent/10 text-fg border border-accent/40",
-  danger: "bg-danger/10 text-danger",
+  danger: "bg-risk/10 text-risk",
   outline: "border border-border text-muted",
 };
 

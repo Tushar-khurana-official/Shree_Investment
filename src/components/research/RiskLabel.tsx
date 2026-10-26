@@ -7,7 +7,7 @@ export function RiskLabel({ level }: { level: RiskLevel }) {
     <span className="inline-flex items-center gap-2 whitespace-nowrap text-sm">
       <span aria-hidden="true" className="flex gap-0.5">
         {RISK_LEVELS.map((_, i) => (
-          <span key={i} className={`h-3 w-1.5 rounded-sm ${i <= idx ? (i >= 4 ? "bg-danger" : "bg-fg/70") : "bg-border"}`} />
+          <span key={i} className={`h-3 w-1.5 rounded-sm ${i <= idx ? (i >= 4 ? "bg-risk" : "bg-fg/70") : "bg-border"}`} />
         ))}
       </span>
       <span>
