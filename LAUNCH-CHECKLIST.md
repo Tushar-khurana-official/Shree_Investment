@@ -73,7 +73,7 @@ These are enforced by tests where possible (`tests/unit/compliance.test.ts` and 
 - [ ] Rate limiter backed by a shared store if you run more than one instance or deploy serverless
 - [ ] Analytics provider chosen and configured; check it loads only after "Accept all"
 - [ ] Add a Content-Security-Policy header for your analytics domain
-- [ ] `site.launch.showPlaceholderRibbon: false`
+- [x] `site.launch.showPlaceholderRibbon: false`
 - [ ] `site.launch.allowIndexing: true` (turns on indexing in `robots.txt` and page meta)
 - [ ] `npm run lint && npm run typecheck && npm test && npm run test:e2e` all pass
 - [ ] Lighthouse on the production URL: 90+ for Performance, Accessibility, Best Practices and SEO (mobile and desktop)

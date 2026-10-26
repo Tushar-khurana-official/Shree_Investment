@@ -184,7 +184,7 @@ export const site = {
   // ---------------------------------------------------------------------------
   launch: {
     /** Shows a thin "preview: placeholder content" ribbon on every page. Set to false at launch. */
-    showPlaceholderRibbon: true, // TODO: false at launch
+    showPlaceholderRibbon: false,
     /** Allow search engines to index the site. Keep false until all TODOs are cleared. */
     allowIndexing: false, // TODO: true at launch
   },
