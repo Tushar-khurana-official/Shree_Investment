@@ -29,7 +29,8 @@ Requires Node.js 20.9 or later.
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | Development server |
+| `npm run dev` | Development server (Turbopack, fast compiles) |
+| `npm run preview` | Production build and server; closest to the live site, and fastest to click around |
 | `npm run build` / `npm start` | Production build and server |
 | `npm run lint` / `npm run typecheck` | ESLint and TypeScript |
 | `npm test` | Unit tests (calculators, validation, contrast, compliance) |
@@ -37,6 +38,13 @@ Requires Node.js 20.9 or later.
 | `npm run placeholders` | Lists every remaining TODO and placeholder |
 
 For `test:e2e`, install the browser once with `npx playwright install chromium` if it is not already available.
+
+## Troubleshooting
+
+- **Buttons do nothing at first in `npm run dev`.** In development, each page is compiled the first time you open it, and its buttons only respond once its JavaScript has loaded. Wait for `✓ Compiled` in the terminal, or use `npm run preview` for production speed.
+- **"Cross origin request detected" warning.** This appears when you open the dev server by network IP (for example from your phone). Addresses on `192.168.x.x` and `10.x.x.x` networks are allowed in `next.config.ts` (`allowedDevOrigins`); add yours if it is different. It never affects the live site.
+- **Some buttons go to example.com or a dummy number.** Client Login, the app store links, KYC links, Google Maps, phone and WhatsApp all use placeholder values. Set the real ones in `site.config.ts`.
+- **"Too many requests" on the contact form.** The production limit is 5 enquiries per device per 10 minutes. Development allows 100, and `LEADS_RATE_LIMIT_MAX` overrides both.
 
 ## Environment variables
 

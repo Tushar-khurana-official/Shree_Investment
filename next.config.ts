@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
   poweredByHeader: false,
   outputFileTracingRoot: __dirname,
+  // Lets you open the dev server from a phone or another computer on your home/office network
+  // (e.g. http://192.168.x.x:3000). Development only; it has no effect on the production site.
+  allowedDevOrigins: ["192.168.*.*", "10.*.*.*"],
   images: {
     formats: ["image/avif", "image/webp"],
   },

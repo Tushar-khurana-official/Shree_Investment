@@ -4,7 +4,7 @@
   "private": true,
   "description": "Configurable marketing and client-engagement website for an AMFI-registered mutual fund distributor",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
@@ -12,7 +12,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "placeholders": "node scripts/list-placeholders.mjs"
+    "placeholders": "node scripts/list-placeholders.mjs",
+    "dev:webpack": "next dev",
+    "preview": "next build && next start"
   },
   "engines": {
     "node": ">=20.9"

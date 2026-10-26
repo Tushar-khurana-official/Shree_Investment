@@ -7,8 +7,11 @@ import { clientIp, createRateLimiter } from "@/lib/rate-limit";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+// Strict in production; relaxed in development so testing the form repeatedly is not blocked.
+const defaultMax = process.env.NODE_ENV === "production" ? 5 : 100;
+
 const limiter = createRateLimiter({
-  max: Number(process.env.LEADS_RATE_LIMIT_MAX || 5),
+  max: Number(process.env.LEADS_RATE_LIMIT_MAX || defaultMax),
   windowMs: Number(process.env.LEADS_RATE_LIMIT_WINDOW_SECONDS || 600) * 1000,
 });
 
