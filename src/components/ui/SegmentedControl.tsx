@@ -29,7 +29,7 @@ export function SegmentedControl<T extends string | number>({
               key={String(o.value)}
               className={cn(
                 "cursor-pointer rounded-full px-4 py-2 text-sm font-medium tabular transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-primary",
-                checked ? "bg-primary text-on-primary" : "text-muted hover:text-fg",
+                checked ? "bg-primary-fill text-on-primary" : "text-muted hover:text-fg",
               )}
             >
               <input

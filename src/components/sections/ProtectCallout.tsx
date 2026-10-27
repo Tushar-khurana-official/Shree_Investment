@@ -5,9 +5,9 @@ import { INSURANCE_STATEMENT } from "@/content/services";
 export function ProtectCallout() {
   return (
     <section aria-labelledby="protect-heading" className="container-content py-6">
-      <div className="grid gap-6 rounded-card bg-primary p-8 text-on-primary grid-cols-1 md:grid-cols-12 md:p-12">
+      <div className="grid gap-6 rounded-card bg-primary-fill p-8 text-on-primary grid-cols-1 md:grid-cols-12 md:p-12">
         <div className="md:col-span-5">
-          <p className="eyebrow !text-on-primary/80">Protect the plan</p>
+          <p className="eyebrow !text-on-primary/90">Protect the plan</p>
           <h2 id="protect-heading" className="mt-3 text-3xl md:text-4xl">
             Cover first. <em className="italic">Then</em> invest.
           </h2>

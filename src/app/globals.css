@@ -11,6 +11,8 @@
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-soft: var(--primary-soft);
+  --color-primary-fill: var(--primary-fill);
+  --color-primary-fill-hover: var(--primary-fill-hover);
   --color-on-primary: var(--on-primary);
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
@@ -61,7 +63,7 @@
   }
   /* text-wrap: pretty is costly on long pages, so it is limited to lead paragraphs. */
   .text-lg, .text-xl { text-wrap: pretty; }
-  ::selection { background: var(--primary); color: var(--on-primary); }
+  ::selection { background: var(--primary-fill); color: var(--on-primary); }
   :focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 2px;

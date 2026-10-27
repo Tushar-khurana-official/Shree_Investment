@@ -1,8 +1,12 @@
-/* Design tokens: Emerald & Warm Ivory, light mode only. Mirrors src/styles/tokens.ts (checked by a unit test). */
+/* Design tokens. Mirrors src/styles/tokens.ts (checked by a unit test). */
+
+/* Light (default): Emerald & Warm Ivory */
 :root {
   --primary: #0A6A4A;
   --primary-hover: #084F38;
   --primary-soft: #DCEFE6;
+  --primary-fill: #0A6A4A;
+  --primary-fill-hover: #084F38;
   --on-primary: #FFFFFF;
   --bg: #F5EEDC;
   --surface: #FFFDF7;
@@ -16,9 +20,38 @@
   --border: #E3DCC8;
   --mocha: #7B4A2E;
   --risk: #B3361B;
+  --hero-ink: #F5EEDC;
+  --hero-shade: #1B2420;
+  --hero-benchmark: #E3DCC8;
   --radius-card: 20px;
   --radius-card-sm: 16px;
   --radius-pill: 999px;
   --max-content: 1200px;
   color-scheme: light;
+}
+
+/* Dark: Midnight Navy, Cobalt Blue & Bright Red (html.dark, set by the theme toggle) */
+.dark {
+  --primary: #8AABF7;
+  --primary-hover: #A9C2FA;
+  --primary-soft: #14306E;
+  --primary-fill: #255DCE;
+  --primary-fill-hover: #1D4FB8;
+  --on-primary: #FFFFFF;
+  --bg: #021851;
+  --surface: #0A2363;
+  --surface-2: #102B70;
+  --accent: #FF5A4F;
+  --accent-strong: #DE1110;
+  --accent-strong-hover: #C00E0D;
+  --on-accent: #FFFFFF;
+  --text: #EEF2FF;
+  --text-muted: #B3C0E3;
+  --border: #22408A;
+  --mocha: #F4B183;
+  --risk: #FF8A80;
+  --hero-ink: #EEF2FF;
+  --hero-shade: #01103A;
+  --hero-benchmark: #9DB4EE;
+  color-scheme: dark;
 }

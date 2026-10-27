@@ -1,10 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect, ALL_PAGES } from "./fixtures";
 
-// Light mode only. Run with a dark OS preference too, to prove the site ignores it.
-for (const scheme of ["light", "dark"] as const) {
-  test.describe(`accessibility (OS prefers ${scheme})`, () => {
-    test.use({ colorScheme: scheme });
+for (const theme of ["light", "dark"] as const) {
+  test.describe(`accessibility (${theme} theme)`, () => {
+    test.use({ theme });
     for (const path of ALL_PAGES) {
       test(`${path} has no WCAG 2.1 A/AA violations`, async ({ page }) => {
         await page.goto(path);

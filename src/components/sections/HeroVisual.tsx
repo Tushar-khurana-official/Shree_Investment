@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { Tilt } from "./Tilt";
 
-const hill = (mix: number): CSSProperties => ({ fill: `color-mix(in srgb, var(--primary-hover) ${mix}%, var(--text))` });
+const hill = (mix: number): CSSProperties => ({ fill: `color-mix(in srgb, var(--primary-fill-hover) ${mix}%, var(--hero-shade))` });
 
 /**
  * Hero illustration. The growth line draws in, then the dashed benchmark; the vermilion sun breathes, the glass
@@ -14,7 +14,7 @@ export function HeroVisual() {
       <Tilt>
           <svg
             viewBox="0 0 560 620"
-            className="h-auto w-full rounded-card shadow-[0_30px_60px_-30px_color-mix(in_srgb,var(--primary)_55%,transparent)]"
+            className="h-auto w-full rounded-card shadow-[0_30px_60px_-30px_color-mix(in_srgb,var(--primary-fill)_55%,transparent)]"
             role="img"
             aria-label="Illustration: a rising line for portfolio value above a gentler dashed line for amount invested, over rolling hills"
           >
@@ -23,15 +23,15 @@ export function HeroVisual() {
                 <rect className="draw-clip" x="40" y="370" width="440" height="120" />
               </clipPath>
             </defs>
-            <rect width="560" height="620" rx="28" style={{ fill: "var(--primary)" }} />
+            <rect width="560" height="620" rx="28" style={{ fill: "var(--primary-fill)" }} />
             <g className="breathe">
               <circle cx="404" cy="168" r="74" style={{ fill: "var(--accent)" }} />
             </g>
-            <circle cx="404" cy="168" r="112" fill="none" style={{ stroke: "var(--bg)" }} strokeOpacity=".25" />
-            <circle cx="404" cy="168" r="150" fill="none" style={{ stroke: "var(--bg)" }} strokeOpacity=".12" />
+            <circle cx="404" cy="168" r="112" fill="none" style={{ stroke: "var(--hero-ink)" }} strokeOpacity=".25" />
+            <circle cx="404" cy="168" r="150" fill="none" style={{ stroke: "var(--hero-ink)" }} strokeOpacity=".12" />
             <path d="M0 470c90-40 150-120 240-112s140 70 210 40 80-60 110-70v292H0z" style={hill(100)} />
             <path d="M0 520c110-30 170-90 270-70s150 60 290 10v160H0z" style={hill(78)} />
-            <g style={{ stroke: "var(--bg)" }} strokeOpacity=".18">
+            <g style={{ stroke: "var(--hero-ink)" }} strokeOpacity=".18">
               <path d="M60 120v380M140 120v380M220 120v380M300 120v380M380 120v380M460 120v380" />
               <path d="M40 200h480M40 280h480M40 360h480M40 440h480" />
             </g>
@@ -39,7 +39,7 @@ export function HeroVisual() {
               d="M60 470 140 452 220 440 300 424 380 410 460 396"
               clipPath="url(#hero-benchmark-clip)"
               fill="none"
-              style={{ stroke: "var(--border)" }}
+              style={{ stroke: "var(--hero-benchmark)" }}
               strokeWidth="3"
               strokeDasharray="10 9"
               strokeLinecap="round"
@@ -49,12 +49,12 @@ export function HeroVisual() {
               pathLength={1}
               d="M60 430 140 400 220 404 300 330 380 300 460 214"
               fill="none"
-              style={{ stroke: "var(--bg)" }}
+              style={{ stroke: "var(--hero-ink)" }}
               strokeWidth="5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <g style={{ fill: "var(--bg)" }}>
+            <g style={{ fill: "var(--hero-ink)" }}>
               {[
                 [140, 400, 6, 500],
                 [220, 404, 6, 760],
@@ -68,7 +68,7 @@ export function HeroVisual() {
           </svg>
 
           <span
-            className="chip-in absolute right-5 top-5 rounded-full border border-on-primary/30 bg-primary-hover px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-on-primary"
+            className="chip-in absolute right-5 top-5 rounded-full border border-on-primary/30 bg-primary-fill-hover px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-on-primary"
             aria-hidden="true"
           >
             Illustration

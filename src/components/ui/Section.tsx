@@ -37,7 +37,7 @@ export function Section({
       aria-labelledby={title ? headingId : undefined}
       className={cn(
         tone === "surface" && "bg-surface",
-        tone === "inverse" && "bg-primary text-on-primary",
+        tone === "inverse" && "bg-primary-fill text-on-primary",
         className,
       )}
     >
@@ -46,7 +46,7 @@ export function Section({
           <div className="mb-10 grid gap-5 md:mb-14 grid-cols-1 md:grid-cols-12">
             <div className="md:col-span-7">
               {eyebrow && (
-                <Eyebrow number={number} className={tone === "inverse" ? "!text-on-primary/80" : undefined}>
+                <Eyebrow number={number} className={tone === "inverse" ? "!text-on-primary/90" : undefined}>
                   {eyebrow}
                 </Eyebrow>
               )}

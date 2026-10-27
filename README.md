@@ -11,7 +11,7 @@ One codebase can serve any distributor: firm details, registration, contacts, fu
 | | |
 |---|---|
 | Framework | Next.js 15 (App Router), React 19, TypeScript |
-| Styling | Tailwind CSS v4, design tokens in `src/styles/tokens.{ts,css}`, light mode only |
+| Styling | Tailwind CSS v4, design tokens in `src/styles/tokens.{ts,css}`; light theme (Emerald & Warm Ivory, default) and dark theme (Midnight Navy, Cobalt Blue & Bright Red) |
 | Fonts | Fraunces (display) and Inter (body), self-hosted through `next/font` |
 | Content | TypeScript and JSON content files, MDX articles |
 | Tests | Vitest (formulas, validation, contrast, compliance copy), Playwright + axe-core (end to end and accessibility) |
@@ -45,6 +45,13 @@ For `test:e2e`, install the browser once with `npx playwright install chromium` 
 - **"Cross origin request detected" warning.** This appears when you open the dev server by network IP (for example from your phone). Addresses on `192.168.x.x` and `10.x.x.x` networks are allowed in `next.config.ts` (`allowedDevOrigins`); add yours if it is different. It never affects the live site.
 - **Some buttons go to example.com or a dummy number.** Client Login, the app store links, KYC links, Google Maps, phone and WhatsApp all use placeholder values. Set the real ones in `site.config.ts`.
 - **"Too many requests" on the contact form.** The production limit is 5 enquiries per device per 10 minutes. Development allows 100, and `LEADS_RATE_LIMIT_MAX` overrides both.
+
+## Themes
+
+- **Light** (default): Emerald `#0A6A4A`, Warm Ivory `#F5EEDC`, Vermilion `#E84A27`.
+- **Dark**: Midnight Navy `#021851` background, Cobalt Blue `#255DCE` for buttons and panels, Bright Red `#DE1110` for CTAs. Cobalt is too dark to read as text on navy, so links and text accents use a lighter cobalt `#8AABF7`.
+- Visitors switch with the sun/moon button in the header. The choice is saved on their device and applied before the page paints. The site always opens in light unless the visitor chose dark.
+- Change colours in `src/styles/tokens.ts` (`palette` for light, `darkPalette` for dark) and mirror them in `src/styles/tokens.css`. A unit test checks both files match and every colour pair passes WCAG AA in both themes.
 
 ## Motion
 

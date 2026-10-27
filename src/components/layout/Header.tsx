@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
+import { ThemeToggle } from "./ThemeToggle";
 
 function isActive(pathname: string, href?: string) {
   if (!href) return false;
@@ -137,6 +138,7 @@ export function Header() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <span className="hidden md:inline-flex">
             <ButtonLink href={site.links.clientLogin} external variant="secondary" size="sm">
               Client Login

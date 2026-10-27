@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-type Node = { x: number; y: number; vx: number; vy: number; r: number; color: string; alpha: number };
+type Node = { x: number; y: number; vx: number; vy: number; r: number; color: "emerald" | "mocha" | "vermilion"; alpha: number };
 
 const LINK_DISTANCE = 140;
 const FRAME_MS = 1000 / 30; // throttle to 30fps
@@ -27,7 +27,13 @@ export function Constellation() {
     if (!canvas || !ctx) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const colors = { emerald: readToken("--primary"), mocha: readToken("--mocha"), vermilion: readToken("--accent") };
+    const colors = { emerald: "", mocha: "", vermilion: "" };
+    const readColors = () => {
+      colors.emerald = readToken("--primary");
+      colors.mocha = readToken("--mocha");
+      colors.vermilion = readToken("--accent");
+    };
+    readColors();
     let nodes: Node[] = [];
     let width = 0;
     let height = 0;
@@ -51,7 +57,7 @@ export function Constellation() {
       nodes = Array.from({ length: count }, (_, i) => {
         const angle = Math.random() * Math.PI * 2;
         const speed = rand(0.1, 0.3);
-        const color = i % 10 === 0 ? colors.vermilion : i % 2 ? colors.emerald : colors.mocha;
+        const color: Node["color"] = i % 10 === 0 ? "vermilion" : i % 2 ? "emerald" : "mocha";
         return { x: rand(0, width), y: rand(0, height), vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, r: rand(1.2, 2.2), color, alpha: rand(0.25, 0.4) };
       });
     };
@@ -75,7 +81,7 @@ export function Constellation() {
       }
       for (const n of nodes) {
         ctx.globalAlpha = n.alpha;
-        ctx.fillStyle = n.color;
+        ctx.fillStyle = colors[n.color];
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fill();
@@ -164,12 +170,19 @@ export function Constellation() {
     else window.addEventListener("load", kickOff, { once: true });
 
     document.addEventListener("visibilitychange", update);
+    // Re-read colours when the theme changes (light / dark), and redraw if paused.
+    const themeObserver = new MutationObserver(() => {
+      readColors();
+      if (started) draw();
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     window.addEventListener("resize", onResize);
 
     return () => {
       cancelAnimationFrame(raf);
       running = false;
       observer?.disconnect();
+      themeObserver.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("load", kickOff);
       window.removeEventListener("resize", onResize);

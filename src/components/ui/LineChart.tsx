@@ -90,13 +90,13 @@ export function LineChart({
         {yTicks.map((t) => (
           <g key={t}>
             <line x1={PAD.left} x2={W - PAD.right} y1={sy(t)} y2={sy(t)} stroke="var(--border)" strokeWidth="1" />
-            <text x={PAD.left - 10} y={sy(t)} textAnchor="end" dominantBaseline="middle" fontSize="11" fill="var(--muted)" className="tabular">
+            <text x={PAD.left - 10} y={sy(t)} textAnchor="end" dominantBaseline="middle" fontSize="11" fill="var(--text-muted)" className="tabular">
               {formatAxisINR(t)}
             </text>
           </g>
         ))}
         {xTicks.map((x) => (
-          <text key={x} x={sx(x)} y={H - 10} textAnchor="middle" fontSize="11" fill="var(--muted)" className="tabular">
+          <text key={x} x={sx(x)} y={H - 10} textAnchor="middle" fontSize="11" fill="var(--text-muted)" className="tabular">
             {xLabel(x)}
           </text>
         ))}
@@ -125,15 +125,15 @@ export function LineChart({
         ))}
         {marker && marker.x >= xMin && marker.x <= xMax && (
           <g>
-            <line x1={sx(marker.x)} x2={sx(marker.x)} y1={PAD.top} y2={PAD.top + innerH} stroke="var(--fg)" strokeOpacity="0.5" strokeDasharray="2 3" />
-            <circle cx={sx(marker.x)} cy={sy(data.find((d) => d[xKey] === marker.x)?.[series[0].key] ?? 0)} r="5" fill="var(--surface)" stroke="var(--fg)" strokeWidth="2" />
+            <line x1={sx(marker.x)} x2={sx(marker.x)} y1={PAD.top} y2={PAD.top + innerH} stroke="var(--text)" strokeOpacity="0.5" strokeDasharray="2 3" />
+            <circle cx={sx(marker.x)} cy={sy(data.find((d) => d[xKey] === marker.x)?.[series[0].key] ?? 0)} r="5" fill="var(--surface)" stroke="var(--text)" strokeWidth="2" />
             {W >= 500 && <text
               x={sx(marker.x) + (sx(marker.x) > W * 0.7 ? -8 : 8)}
               y={PAD.top + 12}
               textAnchor={sx(marker.x) > W * 0.7 ? "end" : "start"}
               fontSize="11"
               fontWeight="600"
-              fill="var(--fg)"
+              fill="var(--text)"
             >
               ◆ {marker.label}
             </text>}

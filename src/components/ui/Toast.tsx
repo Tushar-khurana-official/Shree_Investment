@@ -38,7 +38,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               aria-hidden="true"
               className={cn(
                 "flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold",
-                t.tone === "error" ? "bg-risk text-on-primary" : "bg-primary text-on-primary",
+                t.tone === "error" ? "bg-risk text-on-primary" : "bg-primary-fill text-on-primary",
               )}
             >
               {icons[t.tone]}

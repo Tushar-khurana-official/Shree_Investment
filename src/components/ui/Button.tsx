@@ -10,7 +10,7 @@ const base =
   "focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 text-center leading-tight max-w-full";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-on-primary hover:bg-primary-hover",
+  primary: "bg-primary-fill text-on-primary hover:bg-primary-fill-hover",
   secondary: "border border-primary bg-surface text-primary hover:bg-primary-soft",
   accent: "bg-accent-strong text-on-accent hover:bg-accent-strong-hover font-semibold",
   ghost: "bg-transparent text-primary hover:bg-primary-soft",

@@ -34,14 +34,23 @@ test("fund houses are announced once each; the marquee copy is aria-hidden", asy
   expect(listItems).toBe(announced.length);
 });
 
-test("light mode only: a dark OS preference does not change colours", async ({ browser }) => {
+test("light by default (even with a dark OS preference); the toggle switches to dark and is remembered", async ({ browser }) => {
   const ctx = await browser.newContext({ colorScheme: "dark" });
   const page = await ctx.newPage();
   await page.goto("/");
-  const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-  expect(bg).toBe("rgb(245, 238, 220)");
+  const bg = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  expect(await bg()).toBe("rgb(245, 238, 220)");
   await expect(page.getByRole("link", { name: "Start planning" })).toHaveCSS("background-color", "rgb(10, 106, 74)");
-  await expect(page.getByRole("button", { name: /theme/i })).toHaveCount(0);
+  const toggle = page.getByRole("button", { name: "Dark mode" });
+  await expect(toggle).toHaveAttribute("aria-pressed", "false");
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-pressed", "true");
+  expect(await bg()).toBe("rgb(2, 24, 81)");
+  await expect(page.getByRole("link", { name: "Start planning" })).toHaveCSS("background-color", "rgb(37, 93, 206)");
+  await page.reload();
+  expect(await bg()).toBe("rgb(2, 24, 81)");
+  await page.getByRole("button", { name: "Dark mode" }).click();
+  expect(await bg()).toBe("rgb(245, 238, 220)");
   await ctx.close();
 });
 

@@ -41,7 +41,7 @@ export function InsightList({ posts }: { posts: Insight[] }) {
             onClick={() => setFilter(c)}
             className={cn(
               "rounded-full border px-4 py-2 text-sm font-medium",
-              filter === c ? "border-primary bg-primary text-on-primary" : "border-border hover:border-primary hover:text-primary",
+              filter === c ? "border-primary bg-primary-fill text-on-primary" : "border-border hover:border-primary hover:text-primary",
             )}
           >
             {c === "all" ? "All" : CATEGORY_LABELS[c]}

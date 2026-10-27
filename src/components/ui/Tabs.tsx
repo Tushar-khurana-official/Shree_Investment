@@ -43,7 +43,7 @@ export function Tabs({ items, label, className }: { items: TabItem[]; label: str
             onClick={() => setActive(i)}
             className={cn(
               "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-              active === i ? "bg-primary text-on-primary" : "text-muted hover:text-fg",
+              active === i ? "bg-primary-fill text-on-primary" : "text-muted hover:text-fg",
             )}
           >
             {item.label}
