@@ -48,6 +48,8 @@ For `test:e2e`, install the browser once with `npx playwright install chromium` 
 
 ## Themes
 
+> Shree Investments: navy & gold (from the visiting card) is the default theme, with the logo's blue, red and green used for the tagline. A light theme is available from the header toggle.
+
 - **Light** (default): Emerald `#0A6A4A`, Warm Ivory `#F5EEDC`, Vermilion `#E84A27`.
 - **Dark**: Midnight Navy `#021851` background, Cobalt Blue `#255DCE` for buttons and panels, Bright Red `#DE1110` for CTAs. Cobalt is too dark to read as text on navy, so links and text accents use a lighter cobalt `#8AABF7`.
 - Visitors switch with the sun/moon button in the header. The choice is saved on their device and applied before the page paints. The site always opens in light unless the visitor chose dark.

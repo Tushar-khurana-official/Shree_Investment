@@ -9,7 +9,7 @@ export function ProcessSteps() {
     <Section
       id="how-we-work"
       eyebrow="How it works"
-      title={<>Four steps. The last one <em className="italic text-primary">never</em> ends.</>}
+      title={<>Four steps. The last one <em>never</em> ends.</>}
       intro={<p>Most of the value is in the fourth step.</p>}
     >
       <Stepper steps={processSteps.map((s) => ({ number: s.number, title: s.title, timeline: s.timeline, content: <p>{s.summary}</p> }))} />

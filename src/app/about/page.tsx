@@ -23,7 +23,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title={<>A practice built to be <em className="italic text-primary">unhurried</em>.</>}
+        title={<>A practice built to be <em>unhurried</em>.</>}
         intro={site.firm.description}
         crumbs={[{ name: "About", path: "/about" }]}
       />
@@ -103,7 +103,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section id="values" eyebrow="Values and approach" number="03" title={<>What you can <em className="italic text-primary">hold us to</em>.</>}>
+      <Section id="values" eyebrow="Values and approach" number="03" title={<>What you can <em>hold us to</em>.</>}>
         <ol className="grid gap-px overflow-hidden rounded-card border border-border bg-border md:grid-cols-2">
           {whyUsDetail.map((v, i) => (
             <li key={v.title} className="bg-surface p-7">

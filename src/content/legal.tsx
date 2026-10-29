@@ -82,7 +82,8 @@ export const legalDocs: LegalDoc[] = [
         <p>{site.firm.name} is a mutual fund distributor registered with AMFI ({r.arn}, EUIN {r.euin}). We are not a SEBI-registered investment adviser, and our services are incidental to distribution.</p>
         <p>Calculators on this website are for illustration only. Returns are assumed, not guaranteed. Results do not account for taxes, exit loads, expense ratio changes or the timing of real market returns.</p>
         <p>Articles, news summaries and research data are general information, not recommendations. Fund research data may be delayed, sample or incomplete; verify with the fund house before acting.</p>
-        <p>Insurance is distributed under a separate IRDAI registration. Insurance is not an investment, and insurance products are not mutual funds.</p>
+        <p>Stock market services are provided as an Authorised Person of a SEBI-registered stock broker. Investments in the securities market are subject to market risks. 9 out of 10 individual traders in the equity futures and options segment incurred net losses (SEBI study).</p>
+        <p>Real estate advisory is not a SEBI-regulated activity. Real estate is illiquid; check the RERA registration of every project and have documents verified independently.</p>
       </>
     ),
   },
@@ -113,7 +114,7 @@ export const legalDocs: LegalDoc[] = [
         </table>
         <p>The exact commission on each scheme we recommend is disclosed to you before you invest, and is shown in your consolidated account statement.</p>
         <h2>Other income</h2>
-        <p>We may receive commission from insurers on insurance policies under our separate IRDAI registration, and from issuers on fixed deposits and bonds. These are disclosed before you buy. [TODO: confirm.]</p>
+        <p>For stock market services, brokerage is charged by the stock broker as per its published tariff, and we receive a share of it as its Authorised Person. For real estate, we may receive a commission from the seller or developer, or charge an advisory fee agreed in writing. Every such amount is disclosed before you commit. [TODO: confirm the exact arrangements.]</p>
         <p>See also: <Link href="/approach#distributor">how we work and how we are paid</Link>.</p>
       </>
     ),

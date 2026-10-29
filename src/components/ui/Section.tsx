@@ -76,5 +76,5 @@ export function Section({
 
 /** Italic, emerald emphasis used for one word in display headlines. */
 export function Em({ children, tone = "primary" }: { children: ReactNode; tone?: "primary" | "accent" }) {
-  return <em className={cn("italic", tone === "accent" ? "text-accent" : "text-primary")}>{children}</em>;
+  return <em className={cn(tone === "accent" ? "text-accent" : "text-primary")}>{children}</em>;
 }

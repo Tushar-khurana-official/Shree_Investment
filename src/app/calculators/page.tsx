@@ -17,7 +17,7 @@ export default function CalculatorsHub() {
     <>
       <PageHeader
         eyebrow="Tools"
-        title={<>Calculators that show their <em className="italic text-primary">working</em>.</>}
+        title={<>Calculators that show their <em>working</em>.</>}
         intro="Each calculator shows results at 10%, 12% and 14% side by side, a chart with a data table, and the formula it uses."
         crumbs={[{ name: "Calculators", path: "/calculators" }]}
       />

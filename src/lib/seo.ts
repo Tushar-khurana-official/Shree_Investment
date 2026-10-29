@@ -75,7 +75,7 @@ export function organizationJsonLd() {
           { "@type": "PropertyValue", name: "AMFI ARN", value: site.registration.arn },
           { "@type": "PropertyValue", name: "EUIN", value: site.registration.euin },
         ],
-        knowsAbout: ["Mutual funds", "SIP", "Insurance distribution", "Fixed deposits", "Bonds"],
+        knowsAbout: ["Stock market investments", "IPO", "Mutual funds", "SIP", "Bonds", "Real estate advisory"],
         slogan: site.firm.tagline,
         disambiguatingDescription: `Mutual fund distributor, not a SEBI-registered investment adviser. Office: ${formattedAddress()}.`,
       },

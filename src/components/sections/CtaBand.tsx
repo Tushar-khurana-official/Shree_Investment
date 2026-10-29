@@ -20,8 +20,11 @@ export function CtaBand({ title = "Start a conversation" }: { title?: string }) 
         <ul className="space-y-5 md:col-span-5 md:self-end">
           <li>
             <span className="eyebrow block !text-on-primary/90">Phone</span>
-            <a href={`tel:${site.contact.phoneHref}`} className="font-display text-2xl underline-offset-4 hover:underline">
+            <a href={`tel:${site.contact.phoneHref}`} className="block font-display text-2xl underline-offset-4 hover:underline">
               {site.contact.phone}
+            </a>
+            <a href={`tel:${site.contact.phoneAltHref}`} className="block font-display text-2xl underline-offset-4 hover:underline">
+              {site.contact.phoneAlt}
             </a>
           </li>
           <li>

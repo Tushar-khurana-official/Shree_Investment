@@ -40,35 +40,41 @@ export const site = {
   firm: {
     name: "Shree Investments",
     shortName: "Shree Investments", // short name used in the logo and compact spaces
-    tagline: "Unhurried financial planning for Indian families", // TODO
+    tagline: "Smart investments. Strong growth. Secure future.", // from the visiting card
+    /** Closing line used on the motto band, from the visiting card. */
+    motto: "One vision, infinite growth",
     description:
-      "An AMFI-registered mutual fund distributor helping families plan for retirement, education and the big purchases in between, with a written plan and reviews that change something.", // TODO
-    /** City shown in copy, e.g. "Pune". */
-    city: "[City]", // TODO
-    foundedYear: 2010, // TODO
-    logo: "/images/logo.svg", // TODO: replace with the firm's logo (SVG preferred)
-    favicon: "/favicon.svg", // browser-tab icon (TODO: replace with the firm's mark)
+      "Shree Investments helps families in Jodhpur invest in the stock market, mutual funds and real estate, with honest guidance and a plan they can follow.",
+    /** City shown in copy. */
+    city: "Jodhpur",
+    foundedYear: 2010, // TODO: year the practice started
+    logo: "/images/logo-emblem.webp", // emblem from the visiting card (TODO: replace with the original artwork for sharper rendering)
+    favicon: "/favicon.png", // browser-tab icon, cut from the emblem
   },
 
   // ---------------------------------------------------------------------------
   // Founder / principal distributor
   // ---------------------------------------------------------------------------
   founder: {
-    name: "[Founder Name]", // TODO
-    title: "Founder & Principal Distributor", // TODO
+    name: "Manish Purohit",
+    /**
+     * TODO (compliance): the visiting card says "Investment Advisor". In India that title is reserved for
+     * SEBI-registered Investment Advisers (RIA). Use it only with a SEBI RIA registration; otherwise use a
+     * title that matches the registrations held, e.g. "Mutual Fund Distributor".
+     */
+    title: "Founder, Shree Investments",
     photo: "/images/founder-placeholder.svg", // TODO: square photo, at least 800x800
     photoAlt: "Portrait of the founder (placeholder image)", // TODO
     yearsExperience: 15, // TODO: verify
     qualifications: [
-      { short: "NISM Series V-A", full: "NISM Series V-A: Mutual Fund Distributors Certification" },
-      { short: "CFP", full: "CERTIFIED FINANCIAL PLANNER (FPSB India)" }, // TODO: remove if not held
-      { short: "IRDAI licensed", full: "IRDAI-licensed insurance agent / point of sale person" }, // TODO: remove if not held
+      { short: "NISM Series V-A", full: "NISM Series V-A: Mutual Fund Distributors Certification" }, // TODO: confirm
+      { short: "NISM Series VIII", full: "NISM Series VIII: Equity Derivatives Certification" }, // TODO: confirm, or remove
     ] satisfies readonly Qualification[],
-    degree: { short: "MBA (Finance)", full: "MBA in Finance, [University]" }, // TODO
+    degree: { short: "[Degree]", full: "[Degree], [University]" }, // TODO
     /** Placeholder bio. Each string is a paragraph. */
     bio: [
-      "TODO (placeholder bio): [Founder Name] started the practice in [year] after [number] years in [previous career], with a simple idea: most families do not need more products, they need a plan they understand and someone who will still answer the phone in ten years.",
-      "The approach is deliberately unhurried. The first conversation is about income, obligations and worries, not schemes. Plans are written down, reviewed on a fixed calendar and changed only when there is a reason.",
+      "TODO (placeholder bio): Manish Purohit started Shree Investments in Jodhpur in [year] to give local families one trusted person for the stock market, mutual funds and real estate, instead of three different salespeople.",
+      "The approach is simple: understand the goal first, explain the risk honestly, and choose investments that the family can stay with through good years and bad ones.",
     ],
     /** Placeholder quote. Shown with a visible "placeholder" label until replaced and `quoteVerified` is set to true. */
     quote: "The best plan is the one you can actually keep.", // TODO: confirm wording with the founder
@@ -84,12 +90,17 @@ export const site = {
     amfiRegistrationDate: "[DD Mon YYYY]", // TODO
     validTill: "[DD Mon YYYY]", // TODO
     /** Insurance is distributed under a separate registration. Set to null if you do not distribute insurance. */
-    insurance: {
-      label: "IRDAI registration", // TODO
-      number: "[IRDAI licence / registration no.]", // TODO
-      validTill: "[DD Mon YYYY]", // TODO
-      insurer: "[Insurer or corporate agent / broker name]", // TODO
-    } as { label: string; number: string; validTill: string; insurer: string } | null,
+    insurance: null as { label: string; number: string; validTill: string; insurer: string } | null,
+    /** Stock market services are offered as an Authorised Person (AP) of a SEBI-registered stock broker. */
+    stockBroking: {
+      broker: "[SEBI-registered stock broker name]", // TODO
+      brokerSebiReg: "[INZ000000000]", // TODO: the broker's SEBI registration number
+      apCode: "[Authorised Person registration no. (NSE / BSE)]", // TODO
+    },
+    /** Real estate advisory requires agent registration with RERA Rajasthan. */
+    rera: {
+      number: "[RERA Rajasthan agent registration no.]", // TODO
+    },
     /** Transaction platform used for orders, e.g. BSE StAR MF, NSE NMF II, MFU or an AMC-agnostic platform. */
     transactionPlatform: "[Registered transaction platform, e.g. BSE StAR MF / NSE NMF II / MF Utility]", // TODO
   },
@@ -98,33 +109,36 @@ export const site = {
   // Contact
   // ---------------------------------------------------------------------------
   contact: {
-    phone: "+91 90000 00000", // TODO: display format
-    phoneHref: "+919000000000", // TODO: E.164 format for tel: links
-    whatsapp: "919000000000", // TODO: country code + number, digits only (used for wa.me links)
-    whatsappMessage: "Hello, I would like to talk about my investments.",
-    email: "hello@example.com", // TODO
+    phone: "+91 98299 47444",
+    phoneHref: "+919829947444",
+    /** Second number from the visiting card. */
+    phoneAlt: "+91 93146 47444",
+    phoneAltHref: "+919314647444",
+    whatsapp: "919829947444", // TODO: confirm this number is on WhatsApp
+    whatsappMessage: "Hello Shree Investments, I would like to talk about my investments.",
+    email: "Manish.p2001us@gmail.com", // TODO: consider a domain email (e.g. manish@shreeinvestments.in) for trust
     address: {
-      line1: "[Office no., Building]", // TODO
-      line2: "[Street, Area]", // TODO
-      city: "[City]", // TODO
-      state: "[State]", // TODO
-      pincode: "[000000]", // TODO
+      line1: "13 Mahaveerpuram City",
+      line2: "Near Chopasni School, Chopasni",
+      city: "Jodhpur",
+      state: "Rajasthan",
+      pincode: "", // TODO: add the PIN code
     },
     hours: [
       { days: "Monday to Friday", time: "10:00 am to 6:30 pm" }, // TODO
       { days: "Saturday", time: "10:00 am to 1:30 pm" }, // TODO
       { days: "Sunday and public holidays", time: "Closed" },
     ],
-    mapsUrl: "https://maps.google.com/?q=TODO", // TODO: Google Maps share link for the office
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=13+Mahaveerpuram+City+Chopasni+Jodhpur", // TODO: replace with the office's Google Maps share link
   },
 
   // ---------------------------------------------------------------------------
   // Grievance redressal (shown in the footer and legal pages)
   // ---------------------------------------------------------------------------
   grievance: {
-    officerName: "[Grievance Officer Name]", // TODO
-    email: "grievance@example.com", // TODO
-    phone: "+91 90000 00000", // TODO
+    officerName: "Manish Purohit", // TODO: confirm
+    email: "Manish.p2001us@gmail.com", // TODO: confirm
+    phone: "+91 98299 47444", // TODO: confirm
     responseDays: 7, // TODO: confirm the turnaround you commit to
   },
 
@@ -208,7 +222,7 @@ export type SiteConfig = typeof site;
 /** Fully formatted single-line office address. */
 export function formattedAddress(): string {
   const a = site.contact.address;
-  return `${a.line1}, ${a.line2}, ${a.city}, ${a.state} ${a.pincode}`;
+  return `${a.line1}, ${a.line2}, ${a.city}, ${a.state}${a.pincode ? ` ${a.pincode}` : ""}`;
 }
 
 /** Fund houses with duplicate names removed (case-insensitive), preserving order. */

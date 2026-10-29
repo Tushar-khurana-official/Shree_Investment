@@ -18,7 +18,7 @@ export default function ExplainedPage() {
       <JsonLd data={faqJsonLd(explainedFaq)} />
       <PageHeader
         eyebrow="Resources"
-        title={<>Mutual funds, <em className="italic text-primary">explained</em>.</>}
+        title={<>Mutual funds, <em>explained</em>.</>}
         intro="Plain language, Indian context, no jargon left unexplained. Read it in order, or jump to what you need."
         crumbs={[{ name: "Mutual Funds Explained", path: "/mutual-funds-explained" }]}
       />

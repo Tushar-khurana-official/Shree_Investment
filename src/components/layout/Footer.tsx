@@ -4,6 +4,7 @@ import { formattedAddress, showTodos, site } from "@config";
 import { ConfigText, allSet } from "@/components/ui/ConfigText";
 import { calculators } from "@/content/calculators";
 import { legalLinks } from "@/content/navigation";
+import { FNO_RISK_NOTE } from "@/content/services";
 import { Logo } from "./Logo";
 import { CookieSettingsButton } from "./CookieSettingsButton";
 
@@ -83,6 +84,10 @@ export function Footer() {
                 <a href={`tel:${site.contact.phoneHref}`} className="hover:text-primary hover:underline">
                   {site.contact.phone}
                 </a>
+                <br />
+                <a href={`tel:${site.contact.phoneAltHref}`} className="hover:text-primary hover:underline">
+                  {site.contact.phoneAlt}
+                </a>
               </p>
               <p>
                 <a href={`mailto:${site.contact.email}`} className="break-all hover:text-primary hover:underline">
@@ -139,8 +144,9 @@ export function Footer() {
               <strong className="font-medium text-fg">
                 Mutual fund investments are subject to market risks, read all scheme related documents carefully.
               </strong>{" "}
-              Past performance is not indicative of future returns. Calculator results are illustrations based on assumed returns.
-              {site.registration.insurance && " Insurance is distributed under a separate IRDAI registration and is not an investment."}
+              Investments in the securities market are subject to market risks. {FNO_RISK_NOTE} Real estate is not regulated by SEBI;
+              check RERA registration before investing. Past performance is not indicative of future returns. Calculator results are
+              illustrations based on assumed returns.
             </p>
           </section>
         </div>

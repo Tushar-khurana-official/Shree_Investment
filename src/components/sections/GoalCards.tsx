@@ -10,7 +10,7 @@ export function GoalCards() {
     <Section
       id="goals"
       eyebrow="Goals we plan for"
-      title={<>Start with the goal, <em className="italic text-primary">not</em> the product.</>}
+      title={<>Start with the goal, <em>not</em> the product.</>}
       intro="Each goal gets its own date, amount and mix of investments. The closer the date, the less risk the money should carry."
     >
       <p className="mb-6 flex items-center gap-2 text-sm text-muted">

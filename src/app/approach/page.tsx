@@ -20,7 +20,7 @@ export default function ApproachPage() {
     <>
       <PageHeader
         eyebrow="How we work"
-        title={<>Four steps. Most of the value is in the <em className="italic text-primary">fourth</em>.</>}
+        title={<>Four steps. Most of the value is in the <em>fourth</em>.</>}
         intro="A clear process, with a timeline for each step, so you always know what happens next and when."
         crumbs={[{ name: "How we work", path: "/approach" }]}
       />
@@ -88,7 +88,7 @@ export default function ApproachPage() {
         </div>
       </Section>
 
-      <Section id="why-us" eyebrow="Why us" title={<>Four promises you can <em className="italic text-primary">check</em>.</>}>
+      <Section id="why-us" eyebrow="Why us" title={<>Four promises you can <em>check</em>.</>}>
         <ol className="grid gap-px overflow-hidden rounded-card border border-border bg-border md:grid-cols-2">
           {whyUsDetail.map((v, i) => (
             <li key={v.title} className="bg-surface p-8">

@@ -20,7 +20,7 @@ export default async function ResearchPage() {
     <>
       <PageHeader
         eyebrow="Tools · MF Research"
-        title={<>Scheme facts, <em className="italic text-primary">without</em> the sales pitch.</>}
+        title={<>Scheme facts, <em>without</em> the sales pitch.</>}
         intro="Search and filter schemes by category, fund house, risk level and return period. This page shows factual data only; it does not rank, rate or recommend schemes."
         crumbs={[{ name: "MF Research", path: "/mf-research" }]}
       >

@@ -21,7 +21,7 @@ export default function ThankYouPage() {
     <div className="container-content py-16 md:py-24">
       <p className="eyebrow">Request received</p>
       <h1 className="mt-4 max-w-3xl text-4xl md:text-6xl">
-        Thank you. We will be in <em className="italic text-primary">touch</em>.
+        Thank you. We will be in <em>touch</em>.
       </h1>
       <p className="mt-6 max-w-2xl text-lg text-muted">
         Your request has reached {site.firm.name}. Nothing else is needed from you right now, and you will not be added to any mailing list.

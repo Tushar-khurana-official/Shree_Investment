@@ -20,8 +20,13 @@
   --color-on-accent: var(--on-accent);
   --color-mocha: var(--mocha);
   --color-risk: var(--risk);
+  --color-gold: var(--gold);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-red: var(--brand-red);
+  --color-brand-green: var(--brand-green);
 
-  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-ornament: var(--font-cinzel), "Trajan Pro", Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --radius-card: 20px;
@@ -52,15 +57,17 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    line-height: 1.12;
-    letter-spacing: -0.015em;
+    font-weight: 600;
+    line-height: 1.14;
+    letter-spacing: -0.012em;
     text-wrap: balance;
   }
   h1, h2 {
-    font-weight: 560;
-    letter-spacing: -0.022em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
+  /* Emphasis words in headings: gold (navy theme) / royal blue (light), upright like the card's type. */
+  h1 em, h2 em, h3 em { font-style: normal; color: var(--primary); }
   /* text-wrap: pretty is costly on long pages, so it is limited to lead paragraphs. */
   .text-lg, .text-xl { text-wrap: pretty; }
   ::selection { background: var(--primary-fill); color: var(--on-primary); }
@@ -86,9 +93,9 @@
     font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--primary);
+    color: var(--gold);
   }
   .tabular { font-variant-numeric: tabular-nums; }
   .hairline { border-color: var(--border); }
@@ -206,12 +213,29 @@
     animation: accent-shift 8s steps(48) 2.5s infinite;
   }
 
+  /* Hero emblem: slowly turning golden sunburst, orbit ring, breathing emblem */
+  .hero-rays {
+    background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--gold) 28%, transparent) 0deg 3deg, transparent 3deg 12deg);
+    mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);
+    animation: spin 90s linear 2.5s infinite;
+  }
+  .orbit { animation: spin 60s linear 2.5s infinite reverse; }
+  .breathe-html { animation: breathe 4s ease-in-out 2.5s infinite alternate; }
+
   /* Hero visual */
   .draw-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.6s cubic-bezier(0.4, 0, 0.2, 1) 300ms forwards; }
   .draw-clip { transform-box: fill-box; transform-origin: left center; animation: grow-x 1.1s ease-out 1.8s both; }
   .breathe { transform-box: fill-box; transform-origin: center; animation: breathe 4s ease-in-out 2.5s infinite alternate; }
   .float-bob { animation: bob 7s ease-in-out 2.5s infinite; }
   .chip-in { animation: chip-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) 1s both; }
+
+  /* Motto plaque, after the visiting card's banner */
+  .motto-banner {
+    border: 1.5px solid var(--gold);
+    border-radius: 8px;
+    padding: 0.55em 1.4em;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 12%, transparent), 0 0 32px -8px color-mix(in srgb, var(--gold) 45%, transparent);
+  }
 
   /* Route change fade (not on first load) */
   .route-fade { animation: hero-fade 200ms ease-out both; }
@@ -243,6 +267,7 @@
 @keyframes chip-in { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
 @keyframes pulse-ring { from { transform: scale(1); opacity: 0.55; } to { transform: scale(1.6); opacity: 0; } }
 @keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* Reduced motion: every animation jumps to its final state; loops, drift and the marquee stop. */
 @media (prefers-reduced-motion: reduce) {
@@ -254,7 +279,7 @@
     scroll-behavior: auto !important;
   }
   .js .reveal { opacity: 1; transform: none; }
-  .ambient-glow, .breathe, .float-bob { animation: none !important; }
+  .ambient-glow, .breathe, .breathe-html, .float-bob, .hero-rays, .orbit { animation: none !important; }
   .pulse-ring::before { display: none; }
   /* Keep the accent word one steady colour. */
   .accent-shift { animation: none !important; background: none; color: var(--accent); }

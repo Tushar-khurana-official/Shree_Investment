@@ -34,23 +34,22 @@ test("fund houses are announced once each; the marquee copy is aria-hidden", asy
   expect(listItems).toBe(announced.length);
 });
 
-test("light by default (even with a dark OS preference); the toggle switches to dark and is remembered", async ({ browser }) => {
-  const ctx = await browser.newContext({ colorScheme: "dark" });
+test("navy & gold by default (even with a light OS preference); the toggle switches to light and is remembered", async ({ browser }) => {
+  const ctx = await browser.newContext({ colorScheme: "light" });
   const page = await ctx.newPage();
   await page.goto("/");
   const bg = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-  expect(await bg()).toBe("rgb(245, 238, 220)");
-  await expect(page.getByRole("link", { name: "Start planning" })).toHaveCSS("background-color", "rgb(10, 106, 74)");
-  const toggle = page.getByRole("button", { name: "Dark mode" });
+  expect(await bg()).toBe("rgb(6, 18, 58)");
+  await expect(page.getByRole("link", { name: "Start planning" })).toHaveCSS("background-color", "rgb(240, 180, 60)");
+  const toggle = page.getByRole("button", { name: "Light mode" });
   await expect(toggle).toHaveAttribute("aria-pressed", "false");
   await toggle.click();
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
-  expect(await bg()).toBe("rgb(2, 24, 81)");
-  await expect(page.getByRole("link", { name: "Start planning" })).toHaveCSS("background-color", "rgb(37, 93, 206)");
+  expect(await bg()).toBe("rgb(247, 245, 239)");
   await page.reload();
-  expect(await bg()).toBe("rgb(2, 24, 81)");
-  await page.getByRole("button", { name: "Dark mode" }).click();
-  expect(await bg()).toBe("rgb(245, 238, 220)");
+  expect(await bg()).toBe("rgb(247, 245, 239)");
+  await page.getByRole("button", { name: "Light mode" }).click();
+  expect(await bg()).toBe("rgb(6, 18, 58)");
   await ctx.close();
 });
 

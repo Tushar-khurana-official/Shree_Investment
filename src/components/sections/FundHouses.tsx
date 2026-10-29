@@ -21,7 +21,7 @@ export function FundHouses() {
     <Section
       id="fund-houses"
       eyebrow="Fund houses we work with"
-      title={<>Your money goes to the <em className="italic text-primary">fund house</em>.</>}
+      title={<>Your money goes to the <em>fund house</em>.</>}
       intro={<p>Your money is invested directly with the fund house. It never sits with us.</p>}
     >
       {/*
