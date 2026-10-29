@@ -3,6 +3,15 @@
 Nothing on this list is optional. Each item is placeholder data, an unverified figure, or text that needs professional
 review. Run `npm run placeholders` for a line-by-line list of what remains.
 
+## 0. Before anything else: titles and registrations (Shree Investments)
+
+- [ ] **"Investment Advisor" on the visiting card.** In India this title is reserved for SEBI-registered Investment Advisers (RIA). Unless Manish Purohit holds an RIA registration, do not use it on the website, card or WhatsApp profile. The site uses "Founder, Shree Investments" until this is confirmed.
+- [ ] **Mutual funds:** AMFI ARN and EUIN (`registration.arn`, `registration.euin`, dates).
+- [ ] **Stock market:** name of the SEBI-registered stock broker, its SEBI registration number, and the Authorised Person code (`registration.stockBroking`). Confirm the current F&O risk-disclosure wording with the broker.
+- [ ] **Real estate:** RERA Rajasthan agent registration number (`registration.rera`).
+- [ ] Office PIN code, a Google Maps share link, and whether +91 98299 47444 is the WhatsApp number.
+- [ ] Logo: the emblem was cut from the visiting card image. Replace `public/images/logo-emblem.webp` with the original artwork for a sharper result.
+
 ## 1. Registration and identity (`site.config.ts`)
 
 - [ ] `firm.name`, `shortName`, `tagline`, `description`, `city`, `foundedYear`

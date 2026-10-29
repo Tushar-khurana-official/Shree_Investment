@@ -9,9 +9,9 @@ export const mainNav: NavGroup[] = [
   {
     label: "Services",
     children: [
-      { label: "Mutual Funds", href: "/services#mutual-funds", description: "Onboarding, SIPs and portfolio monitoring" },
-      { label: "Insurance", href: "/services#insurance", description: "Protection planning and claims help" },
-      { label: "Fixed Deposits & Bonds", href: "/services#fd-bonds", description: "Fixed-income selection and servicing" },
+      { label: "Stock Market", href: "/services#stock-market", description: "Equity, long-term investing, IPOs, derivatives" },
+      { label: "Mutual Funds", href: "/services#mutual-funds", description: "SIP, lump sum, bonds, wealth creation" },
+      { label: "Real Estate Advisory", href: "/services#real-estate", description: "Residential, commercial and plots" },
       { label: "How we work", href: "/approach", description: "Our four-step process" },
     ],
   },

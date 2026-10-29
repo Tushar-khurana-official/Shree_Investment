@@ -38,6 +38,12 @@ const pairs = (t: Palette): [string, string, number, string][] => [
   [t.mocha, t.surface, 3, "invested-amount chart series (non-text)"],
   [t.primary, t.surface, 3, "portfolio-value chart series (non-text)"],
   [t["hero-ink"], t["primary-fill"], 3, "hero illustration line on its panel (non-text)"],
+  [t.gold, t.bg, 4.5, "gold eyebrows and labels"],
+  [t.gold, t.surface, 4.5, "gold eyebrows on cards"],
+  [t["brand-blue"], t.bg, 3, "'Smart' in the hero (large text)"],
+  [t["brand-red"], t.bg, 3, "'Strong' in the hero (large text)"],
+  [t["brand-green"], t.bg, 3, "'Secure' in the hero (large text)"],
+  [t["on-accent"], t["accent-strong"], 7, "gold CTA with navy text (enhanced)"],
 ];
 
 describe.each([
@@ -49,30 +55,19 @@ describe.each([
   });
 });
 
-describe("light mode extras", () => {
-  it("accent-strong as small text passes on Surface", () => {
-    expect(contrast(t["accent-strong"], t.surface)).toBeGreaterThanOrEqual(4.5);
-  });
-});
-
 describe("design decisions", () => {
-  it("white on Vermilion #E84A27 fails AA, which is why buttons use accent-strong", () => {
-    expect(contrast("#FFFFFF", t.accent)).toBeLessThan(4.5);
-    expect(contrast("#FFFFFF", t["accent-strong"])).toBeGreaterThan(5);
+  it("gold CTAs use navy text: white on gold would fail AA", () => {
+    expect(contrast("#FFFFFF", darkPalette["accent-strong"])).toBeLessThan(4.5);
+    expect(contrast(darkPalette["on-accent"], darkPalette["accent-strong"])).toBeGreaterThan(7);
   });
 
   it("accent-strong small text is 4.49:1 on Ivory, a hair under AA, so small accent text sits on Surface", () => {
     expect(contrast(t["accent-strong"], t.bg)).toBeLessThan(4.5);
   });
 
-  it("dark mode: Cobalt is too dark for text on navy, which is why text accents use a lighter cobalt", () => {
-    expect(contrast(darkPalette["primary-fill"], darkPalette.bg)).toBeLessThan(4.5);
-    expect(contrast(darkPalette.primary, darkPalette.bg)).toBeGreaterThan(7);
-  });
-
-  it("tokens.css mirrors tokens.ts (light on :root, dark on .dark)", () => {
+  it("tokens.css mirrors tokens.ts (navy default on :root, light on .light)", () => {
     const css = readFileSync(path.join(__dirname, "../../src/styles/tokens.css"), "utf8");
-    const [lightBlock, darkBlock] = css.split(".dark {");
+    const [darkBlock, lightBlock] = css.split(".light {");
     for (const [k, v] of Object.entries(palette)) expect(lightBlock).toContain(`--${k}: ${v};`);
     for (const [k, v] of Object.entries(darkPalette)) expect(darkBlock).toContain(`--${k}: ${v};`);
     expect(lightBlock).toContain("color-scheme: light;");

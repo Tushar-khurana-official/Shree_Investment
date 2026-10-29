@@ -15,7 +15,7 @@ export default function InsightsPage() {
     <>
       <PageHeader
         eyebrow="Insights"
-        title={<>Notes worth <em className="italic text-primary">keeping</em>.</>}
+        title={<>Notes worth <em>keeping</em>.</>}
         intro="Occasional, unhurried writing on allocation, behaviour, tax and goals. No stock tips, no predictions."
         crumbs={[{ name: "Insights", path: "/insights" }]}
       />

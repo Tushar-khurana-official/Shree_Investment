@@ -1,16 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@config";
 
-/** Wordmark logo. TODO: replace with the firm's logo (site.firm.logo) once available. */
+/** Emblem from the visiting card plus the firm name. */
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" className={`group inline-flex items-center gap-2.5 ${className}`} aria-label={`${site.firm.name}, home`}>
-      <svg aria-hidden="true" viewBox="0 0 32 32" className="h-8 w-8 shrink-0">
-        <rect width="32" height="32" rx="9" fill="var(--primary-fill)" />
-        <path d="M7 22 13 13l5 6 3-4 4 7" fill="none" stroke="var(--on-primary)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="23" cy="9.5" r="2.2" fill="var(--accent)" />
-      </svg>
-      <span className="font-display text-xl leading-none tracking-tight">{site.firm.shortName}</span>
+    <Link href="/" className={`group inline-flex items-center gap-3 ${className}`}>
+      <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-gold/60 shadow-[0_0_18px_-6px_var(--gold)]">
+        <Image src={site.firm.logo} alt="" fill sizes="44px" className="object-cover" />
+      </span>
+      <span className="flex flex-col leading-none">
+        <span className="font-display text-lg font-bold uppercase tracking-wide text-fg">Shree</span>{" "}
+        <span className="font-ornament text-[0.7rem] uppercase tracking-[0.32em] text-gold">Investments</span>
+        <span className="sr-only">, home</span>
+      </span>
     </Link>
   );
 }

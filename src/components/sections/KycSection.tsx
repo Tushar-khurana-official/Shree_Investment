@@ -7,7 +7,7 @@ export function KycSection() {
     <Section
       id="kyc"
       eyebrow="New to investing? Start here"
-      title={<>One KYC, <em className="italic text-primary">every</em> fund house.</>}
+      title={<>One KYC, <em>every</em> fund house.</>}
       intro="KYC (Know Your Customer) is a one-time identity check required before your first mutual fund purchase. Once it is registered with a KRA, it is valid across all fund houses."
     >
       <div className="grid gap-6 md:grid-cols-2">

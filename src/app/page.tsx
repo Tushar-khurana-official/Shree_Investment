@@ -6,7 +6,7 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { ServicesOverview } from "@/components/sections/ServicesOverview";
 import { SipPreview } from "@/components/sections/SipPreview";
 import { GoalCards } from "@/components/sections/GoalCards";
-import { ProtectCallout } from "@/components/sections/ProtectCallout";
+import { ValuesBand } from "@/components/sections/ValuesBand";
 import { KycSection } from "@/components/sections/KycSection";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { WhyUs } from "@/components/sections/WhyUs";
@@ -32,16 +32,16 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <ServicesOverview />
+      <ValuesBand />
       <Section
         id="sip-preview"
         eyebrow="Try the numbers"
-        title={<>What a monthly SIP <em className="italic text-primary">could</em> become.</>}
+        title={<>What a monthly SIP <em>could</em> become.</>}
         intro="Move the slider. The numbers are an illustration at an assumed return, not a forecast."
       >
         <SipPreview />
       </Section>
       <GoalCards />
-      <ProtectCallout />
       <KycSection />
       <ProcessSteps />
       <WhyUs />

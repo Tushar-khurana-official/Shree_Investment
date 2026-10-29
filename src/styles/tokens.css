@@ -1,57 +1,65 @@
 /* Design tokens. Mirrors src/styles/tokens.ts (checked by a unit test). */
 
-/* Light (default): Emerald & Warm Ivory */
+/* Default: navy & gold (the visiting card) */
 :root {
-  --primary: #0A6A4A;
-  --primary-hover: #084F38;
-  --primary-soft: #DCEFE6;
-  --primary-fill: #0A6A4A;
-  --primary-fill-hover: #084F38;
+  --primary: #F2C14E;
+  --primary-hover: #F7D27A;
+  --primary-soft: #1C2C63;
+  --primary-fill: #2356D9;
+  --primary-fill-hover: #1C47BB;
   --on-primary: #FFFFFF;
-  --bg: #F5EEDC;
-  --surface: #FFFDF7;
-  --surface-2: #EFE7D2;
-  --accent: #E84A27;
-  --accent-strong: #C2401F;
-  --accent-strong-hover: #A93619;
-  --on-accent: #FFFFFF;
-  --text: #1B2420;
-  --text-muted: #5C6661;
-  --border: #E3DCC8;
-  --mocha: #7B4A2E;
-  --risk: #B3361B;
-  --hero-ink: #F5EEDC;
-  --hero-shade: #1B2420;
-  --hero-benchmark: #E3DCC8;
+  --bg: #06123A;
+  --surface: #0C1E52;
+  --surface-2: #12286A;
+  --accent: #FF6B5E;
+  --accent-strong: #F0B43C;
+  --accent-strong-hover: #F7C766;
+  --on-accent: #06123A;
+  --text: #F4F6FB;
+  --text-muted: #B7C2DE;
+  --border: #233A7A;
+  --mocha: #8EB6FF;
+  --risk: #FF8A80;
+  --gold: #F2C14E;
+  --brand-blue: #5AA2FF;
+  --brand-red: #FF6B5E;
+  --brand-green: #5CCB6F;
+  --hero-ink: #F4F6FB;
+  --hero-shade: #020A24;
+  --hero-benchmark: #8EB6FF;
   --radius-card: 20px;
   --radius-card-sm: 16px;
   --radius-pill: 999px;
   --max-content: 1200px;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
-/* Dark: Midnight Navy, Cobalt Blue & Bright Red (html.dark, set by the theme toggle) */
-.dark {
-  --primary: #8AABF7;
-  --primary-hover: #A9C2FA;
-  --primary-soft: #14306E;
-  --primary-fill: #255DCE;
-  --primary-fill-hover: #1D4FB8;
+/* Light theme (html.light, set by the theme toggle) */
+.light {
+  --primary: #1E46B4;
+  --primary-hover: #163A99;
+  --primary-soft: #E6ECFB;
+  --primary-fill: #0B1F5C;
+  --primary-fill-hover: #142C7A;
   --on-primary: #FFFFFF;
-  --bg: #021851;
-  --surface: #0A2363;
-  --surface-2: #102B70;
-  --accent: #FF5A4F;
-  --accent-strong: #DE1110;
-  --accent-strong-hover: #C00E0D;
-  --on-accent: #FFFFFF;
-  --text: #EEF2FF;
-  --text-muted: #B3C0E3;
-  --border: #22408A;
-  --mocha: #F4B183;
-  --risk: #FF8A80;
-  --hero-ink: #EEF2FF;
-  --hero-shade: #01103A;
+  --bg: #F7F5EF;
+  --surface: #FFFFFF;
+  --surface-2: #EEF1F8;
+  --accent: #D32F2F;
+  --accent-strong: #E3A21A;
+  --accent-strong-hover: #EDB540;
+  --on-accent: #0B1A45;
+  --text: #0B1A45;
+  --text-muted: #4B587A;
+  --border: #DCE2F0;
+  --mocha: #B07A12;
+  --risk: #B3261E;
+  --gold: #8A5E00;
+  --brand-blue: #1F5FD6;
+  --brand-red: #D32F2F;
+  --brand-green: #2E7D32;
+  --hero-ink: #FFFFFF;
+  --hero-shade: #020A24;
   --hero-benchmark: #9DB4EE;
-  color-scheme: dark;
+  color-scheme: light;
 }

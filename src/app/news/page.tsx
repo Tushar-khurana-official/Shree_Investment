@@ -19,7 +19,7 @@ export default async function NewsPage() {
     <>
       <PageHeader
         eyebrow="News"
-        title={<>What changed, <em className="italic text-primary">briefly</em>.</>}
+        title={<>What changed, <em>briefly</em>.</>}
         intro="Fund launches, NFO (new fund offer) announcements and regulation, summarised in a line. Facts only; none of it is a recommendation."
         crumbs={[{ name: "News", path: "/news" }]}
       >

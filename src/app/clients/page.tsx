@@ -56,7 +56,7 @@ export default function ClientsPage() {
     <>
       <PageHeader
         eyebrow="Existing clients"
-        title={<>Your whole portfolio, in your <em className="italic text-primary">pocket</em>.</>}
+        title={<>Your whole portfolio, in your <em>pocket</em>.</>}
         intro="Every client gets access to a secure portal and app, run on a registered platform, with all their holdings in one place."
         crumbs={[{ name: "Existing clients", path: "/clients" }]}
       >

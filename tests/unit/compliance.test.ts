@@ -15,6 +15,17 @@ function files(dir: string): string[] {
 const sources = [...files(path.join(root, "src")), path.join(root, "site.config.ts")].map((p) => ({ p, text: readFileSync(p, "utf8") }));
 
 describe("compliance copy rules", () => {
+  it("never calls the firm or founder an investment adviser in marketing copy", () => {
+    // "Investment Adviser" is a SEBI-registered title (RIA). Only negations ("not ... investment adviser") are allowed.
+    for (const { p, text } of sources) {
+      for (const m of text.matchAll(/(trusted|our|your|expert|investment) advis[eo]r/gi)) {
+        const before = text.slice(Math.max(0, m.index! - 40), m.index!);
+        const ok = /\b(not|never|no)\b[^.]*$/i.test(before) || /reserved|RIA|title/i.test(text.slice(m.index!, m.index! + 200));
+        expect(ok, `${path.relative(root, p)}: "...${before}${m[0]}"`).toBe(true);
+      }
+    }
+  });
+
   it.each([/\bbest funds?\b/i, /\btop picks?\b/i, /\brisk[- ]free\b/i, /\bassured returns?\b/i, /\bsure[- ]shot\b/i])("never uses %s", (re) => {
     const hits = sources.filter((s) => re.test(s.text)).map((s) => path.relative(root, s.p));
     expect(hits).toEqual([]);
@@ -33,7 +44,9 @@ describe("compliance copy rules", () => {
 
   it("keeps the required statements", () => {
     const all = sources.map((s) => s.text).join("\n");
-    expect(all).toContain("Insurance is not an investment, and we will not sell it as one.");
+    expect(all).toContain("9 out of 10 individual traders in the equity futures and options segment incurred net losses");
+    expect(all).toContain("Investments in the securities market are subject to market risks");
+    expect(all).toContain("Check the RERA registration of every project");
     expect(all).toContain("Illustration only.");
     expect(all).toContain("Your money is invested directly with the fund house. It never sits with us.");
     expect(all).toContain("No newsletter, no drip campaign. One call, and we both decide whether there is a fit.");

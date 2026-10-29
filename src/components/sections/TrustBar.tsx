@@ -1,11 +1,14 @@
 import { site, isPlaceholder } from "@config";
 
 export function TrustBar() {
+  const r = site.registration;
   const items = [
-    { label: "AMFI Registered", detail: isPlaceholder(site.registration.arn) ? "Mutual fund distributor" : site.registration.arn },
-    ...site.founder.qualifications.map((q) => ({ label: q.short, detail: q.short === "NISM Series V-A" ? "Certified" : "Qualified" })),
+    { label: "AMFI Registered", detail: isPlaceholder(r.arn) ? "Mutual fund distributor" : r.arn },
+    { label: "Stock Market", detail: isPlaceholder(r.stockBroking.broker) ? "Equity · IPO · F&O" : `AP of ${r.stockBroking.broker}` },
+    { label: "Real Estate", detail: isPlaceholder(r.rera.number) ? "Residential · Commercial · Plots" : `RERA ${r.rera.number}` },
+    ...site.founder.qualifications.map((q) => ({ label: q.short, detail: "Certified" })),
     { label: site.founder.degree.short, detail: "Degree" },
-  ];
+  ].filter((i) => !isPlaceholder(i.label));
   return (
     <section aria-label="Registrations and qualifications" className="border-y border-border bg-surface">
       <ul className="container-content grid grid-cols-2 divide-border py-6 sm:grid-cols-3 lg:flex lg:justify-between lg:divide-x">

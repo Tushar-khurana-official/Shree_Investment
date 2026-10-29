@@ -4,7 +4,7 @@ import { QuoteBlock } from "./QuoteBlock";
 
 export function WhyUs() {
   return (
-    <Section id="why-us" eyebrow="Why families choose us" title={<>Fewer products. <em className="italic text-primary">More</em> attention.</>}>
+    <Section id="why-us" eyebrow="Why families choose us" title={<>Fewer products. <em>More</em> attention.</>}>
       <ol className="grid gap-px overflow-hidden rounded-card border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {whyUs.map((w, i) => (
           <li key={w.title} className="bg-surface p-7">

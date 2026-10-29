@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Cinzel, Inter, Montserrat } from "next/font/google";
 import { site, siteUrl } from "@config";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -9,22 +9,23 @@ import { PlaceholderRibbon } from "@/components/layout/PlaceholderRibbon";
 import { Analytics } from "@/components/layout/Analytics";
 import { AmbientBackground } from "@/components/layout/AmbientBackground";
 import { bootScript } from "@/lib/boot-script";
-import { palette } from "@/styles/tokens";
+import { darkPalette } from "@/styles/tokens";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { ToastProvider } from "@/components/ui/Toast";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  // "optional": headings never reflow after first paint (no layout shift). The font is preloaded, so it is
-  // used whenever it arrives in time; otherwise the size-adjusted fallback serif stays for that page view.
+  variable: "--font-montserrat",
+  weight: ["600", "700"],
+  // "optional": headings never reflow after first paint. Preloaded, so used whenever it arrives in time.
   display: "optional",
-  // Weight axis only: the optical-size and soft axes roughly double the font payload.
-  style: ["normal", "italic"],
 });
+
+// Ornamental serif for the motto and small display labels, as on the visiting card.
+const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel", weight: ["600"], display: "swap" });
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
@@ -37,11 +38,11 @@ export const metadata: Metadata = {
   robots: site.launch.allowIndexing ? { index: true, follow: true } : { index: false, follow: false },
   openGraph: { siteName: site.firm.name, locale: "en_IN", type: "website" },
   twitter: { card: "summary_large_image" },
-  icons: { icon: [{ url: site.firm.favicon, type: "image/svg+xml" }] },
+  icons: { icon: [{ url: site.firm.favicon, type: "image/png" }] },
 };
 
 export const viewport: Viewport = {
-  themeColor: palette.bg,
+  themeColor: darkPalette.bg,
   width: "device-width",
   initialScale: 1,
 };
@@ -50,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en-IN"
-      className={`${fraunces.variable} ${inter.variable}${site.motion.animatedBackground ? "" : " motion-static"}`}
+      className={`${montserrat.variable} ${cinzel.variable} ${inter.variable}${site.motion.animatedBackground ? "" : " motion-static"}`}
       suppressHydrationWarning
     >
       <head>

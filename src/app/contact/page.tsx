@@ -16,7 +16,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title={<>Start a <em className="italic text-primary">conversation</em>.</>}
+        title={<>Start a <em>conversation</em>.</>}
         intro="Tell us a little about what you are planning for. We will call you back within one working day to set up a first conversation: free, about 45 minutes, with no products named."
         crumbs={[{ name: "Contact", path: "/contact" }]}
       />
@@ -29,7 +29,8 @@ export default function ContactPage() {
             <div>
               <dt className="eyebrow">Phone</dt>
               <dd className="mt-1 font-display text-2xl">
-                <a href={`tel:${c.phoneHref}`} className="hover:text-primary hover:underline">{c.phone}</a>
+                <a href={`tel:${c.phoneHref}`} className="block hover:text-primary hover:underline">{c.phone}</a>
+                <a href={`tel:${c.phoneAltHref}`} className="block hover:text-primary hover:underline">{c.phoneAlt}</a>
               </dd>
             </div>
             <div>
